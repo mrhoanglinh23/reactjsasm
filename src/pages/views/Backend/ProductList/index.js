@@ -21,11 +21,12 @@ const ProductList = ({products}) => {
                 <thead>
                   <tr>
                     <th>#</th>
-                    <th>id</th>
-                    <th>title</th>
-                    <th>userId</th>
-                    <th>body</th>
-                    <th>action</th>
+                    <th>Tên sp</th>
+                    <th>Ảnh</th>
+                    <th>Giá cũ</th>
+                    <th>Giá mới</th>
+                    <th>Tiêu đề</th>
+                    <th>Nội dung</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -34,8 +35,10 @@ const ProductList = ({products}) => {
                     <td>{index + 1}</td>
                     <td>{product.namesp}</td>
                     <td>{product.anh}</td>
-                    <td>{product.price}</td>
+                    <td>${product.oldprice}</td>
+                    <td>${product.newprice}</td>
                     <td>{product.noidung}</td>
+                    <td>{product.description}</td>
                     <td><button className="btn btn-primary btn-sm" >Sửa</button></td>
                     <td><button className="btn btn-primary btn-sm" >Xóa</button></td>
                   </tr> 

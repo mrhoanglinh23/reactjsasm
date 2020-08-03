@@ -1,6 +1,6 @@
 import React,{useState,useEffect} from 'react';
 import axios from 'axios'
-import {BrowserRouter as Router, Route, Switch, Link} from 'react-router-dom'
+import {BrowserRouter as Router, Route, Switch} from 'react-router-dom'
 import LayoutAdmin from './pages/LayoutAdmin';
 import LayoutMain from './pages/LayoutMain';
 // Admin
@@ -8,10 +8,13 @@ import Dashboard from './pages/views/Backend/Dashboard';
 import CateList from './pages/views/Backend/Category';
 import ProductList from './pages/views/Backend/ProductList';
 import AddCate from './pages/views/Backend/Category/add';
+import AddProduct from './pages/views/Backend/ProductList/add';
+import EditCate from './pages/views/Backend/Category/edit';
 // Mainpage
 import Home from './pages/views/Frontend/Home';
 import Products from './pages/views/Frontend/Products';
-import AddProduct from './pages/views/Backend/ProductList/add';
+import EditProduct from './pages/views/Backend/ProductList/edit';
+
 function App() {
   const[products, setProducts] = useState([]);
   useEffect(()=>{
@@ -30,6 +33,15 @@ function App() {
           setCate(res.data)
       })
   })
+
+  const uploadImage = () => {
+    
+  }
+
+  const onHandleRemove = (id) => {
+    const newProducts = products.filter(product => product.id !== id);
+    setProducts(newProducts);
+  }
   return (
     <div>
       <Router>
@@ -41,16 +53,22 @@ function App() {
                   <Dashboard />
                 </Route>
                 <Route exact path="/admin/cat">
-                  <CateList cate={cate}/>
+                  <CateList cate={cate} />
                 </Route>
                 <Route exact path="/admin/products">
-                  <ProductList products={products} />
+                  <ProductList products={products} onRemove={onHandleRemove}/>
                 </Route>
                 <Route exact path="/admin/products/add">
-                  <AddProduct />
+                  <AddProduct cate={cate}/>
                 </Route>
                 <Route exact path="/admin/cat/add">
                   <AddCate />
+                </Route>
+                <Route exact path="/admin/cat/edit/:id">
+                  <EditCate />
+                </Route>
+                <Route exact path="/admin/products/edit/:id">
+                  <EditProduct />
                 </Route>
               </Switch>
             </LayoutAdmin>

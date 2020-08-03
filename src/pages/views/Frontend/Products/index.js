@@ -45,6 +45,7 @@ const Products = ({products}) => {
                   </div>
                 </div>
                 <div className="row mb-5">
+
                   {products.map((product, index) => (
                     <div className="col-sm-6 col-lg-4 mb-4" data-aos="fade-up">
                     <div className="block-4 text-center border">
@@ -59,6 +60,7 @@ const Products = ({products}) => {
                     </div>
                   </div>
                   ))}
+                  
                 </div>
                 <div className="row" data-aos="fade-up">
                   <div className="col-md-12 text-center">

@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-
-const Home = props => {
+import { Link } from 'react-router-dom'
+const Home = ({cate, products}) => {
     return (
         <div>
             <div className="site-blocks-cover" style={{backgroundImage: 'url(images/hero_1.jpg)'}} data-aos="fade">
@@ -113,18 +113,22 @@ const Home = props => {
                       </div>
                     </div>
                   </div>
-                  <div className="item">
+                  {products.map((product) => (
+                    <div className="item">
                     <div className="block-4 text-center">
                       <figure className="block-4-image">
                         <img src="images/shoe_1.jpg" alt="Image placeholder" className="img-fluid" />
                       </figure>
                       <div className="block-4-text p-4">
-                        <h3><a href="#">Corater</a></h3>
-                        <p className="mb-0">Finding perfect products</p>
+                        <h3><a href="#">{product.namesp}</a></h3>
+                        <p className="mb-0">{product.noidung}</p>
+                        <p className="text-primary font-weight-bold">{product.oldprice}</p>
                         <p className="text-primary font-weight-bold">$50</p>
                       </div>
                     </div>
                   </div>
+                  ))}
+                  
                   <div className="item">
                     <div className="block-4 text-center">
                       <figure className="block-4-image">

@@ -1,21 +1,18 @@
 import React, { useEffect, useState } from 'react'
 import PropTypes from 'prop-types'
 import { Link, useParams } from 'react-router-dom'
+import {useHistory} from 'react-router-dom'
+import { useForm } from 'react-hook-form';
 import Axios from 'axios';
 
-const CateList = ({cate, props}) => {
+const CateList = ({cate}) => {
     const { id } = useParams();
+    let history = useHistory();
     useEffect(() => {
         Axios.get(`https://5f26d9ae0824d8001655ec71.mockapi.io/cate/${id}`).then(result => {
             console.log(result);
         })
     }, [id]);
-
-    const handleRemovePost = () => {
-      Axios.delete(`https://5f26d9ae0824d8001655ec71.mockapi.io/cate/${id}`).then(result => {
-            props.history.push("/admin/cate");
-        })
-    }
     return (
         <div>
             <h1 className="h3 mb-2 text-gray-800">Tables</h1>
@@ -51,7 +48,7 @@ const CateList = ({cate, props}) => {
                   <tr key={index}>
                     <td>{index + 1}</td>
                     <td>{cat.title}</td>
-                    <td><button className="btn btn-primary btn-sm" onClick={handleRemovePost}>Sửa</button></td>
+                    <td><Link to="/admin/cat/edit"><button className="btn btn-primary btn-sm" >Sửa</button></Link></td>
                     <td><button className="btn btn-primary btn-sm" >Xóa</button></td>
                   </tr>            
                 ))}

@@ -2,13 +2,15 @@ import React, { useState } from 'react'
 import PropTypes from 'prop-types'
 import { useForm } from 'react-hook-form'
 import Axios from 'axios';
+import { useHistory } from 'react-router-dom';
 
-const AddCate = (props) => {
+const AddCate = () => {
     const {register, handleSubmit, errors} = useForm();
+    let history = useHistory();
     const onSubmit = event => {
         Axios.post('https://5f26d9ae0824d8001655ec71.mockapi.io/cate', event).then(res => {
             console.log(res);
-            props.history.push("/admin/cate")
+            history.push("/admin/cat") 
         })
     }
     return (
