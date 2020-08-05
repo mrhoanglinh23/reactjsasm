@@ -1,6 +1,5 @@
 import React,{useState,useEffect} from 'react';
 import axios from 'axios'
-import {useHistory} from 'react-router-dom'
 import {BrowserRouter as Router, Route, Switch} from 'react-router-dom'
 import LayoutAdmin from './pages/LayoutAdmin';
 import LayoutMain from './pages/LayoutMain';
@@ -19,9 +18,11 @@ import Products from './pages/views/Frontend/Products';
 import EditProduct from './pages/views/Backend/ProductList/edit';
 import ProductDetails from './pages/views/Frontend/ProductDetails';
 import Contact from './pages/views/Frontend/Contact';
+import Axios from 'axios';
 
 function App() {
   const[products, setProducts] = useState([]);
+  const[cate, setCate] = useState([]);
   useEffect(() =>{
     axios.get(`http://localhost:8000/products`)
       .then(res=>{
@@ -29,7 +30,6 @@ function App() {
       })
   },[])
 
-  const[cate, setCate] = useState([]);
   useEffect(()=>{
     axios.get('http://localhost:8000/cate')
       .then(res=>{
@@ -42,6 +42,19 @@ function App() {
     
   }
 
+  const removeCate = id => {
+    Axios.delete(`http://localhost:8000/cate/${id}`).then(res => {
+      setCate(cate.filter(cate => cate.id !== id))
+    })
+  }
+  
+  const removeProduct = id => {
+    Axios.delete(`http://localhost:8000/products/${id}`).then(res => {
+      setProducts(products.filter(products => products.id !== id))
+    })
+		
+	}
+
   return (
     <div>
       <Router>
@@ -53,13 +66,13 @@ function App() {
                   <Dashboard />
                 </Route>
                 <Route exact path="/admin/cat">
-                  <CateList cate={cate} />
+                  <CateList cate={cate} onRemove={removeCate}/>
                 </Route>
                 <Route exact path="/admin/products">
-                  <ProductList products={products}/>
+                  <ProductList products={products} onRemove={removeProduct}/>
                 </Route>
                 <Route exact path="/admin/products/add">
-                  <AddProduct cate={cate}/>
+                  <AddProduct cate={cate} />
                 </Route>
                 <Route exact path="/admin/cat/add">
                   <AddCate />

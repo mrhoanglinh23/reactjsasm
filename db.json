@@ -2,12 +2,16 @@
   "cate": [
     {
       "id": 1,
-      "title": "Apple",
+      "title": "Không có danh mục",
       "anh": "anh 1"
     },
     {
-      "title": "Web Developer",
+      "title": "Apple",
       "id": 2
+    },
+    {
+      "title": "Oppo",
+      "id": 3
     }
   ],
   "products": [
@@ -20,14 +24,24 @@
       "noidung": "nội dung1",
       "description": "idhfoidffejfoierf",
       "cateId": 1
+    }
+  ], 
+  "danhmucbv": [
+    {
+      "id": 1,
+      "tendm": "Không có danh mục",
+      "anh": "anh 1"
     },
     {
-      "namesp": "Iphone 6",
-      "oldprice": "29",
-      "newprice": "41",
-      "noidung": "fgfdgfghrtgdweqwdawasx",
-      "description": "",
+      "title": "Apple",
       "id": 2
+    }
+  ],
+  "baiviet": [
+    {
+      "id": 1,
+      "title": "This is new Upload",
+      "description": "My name is something"
     }
   ]
 }

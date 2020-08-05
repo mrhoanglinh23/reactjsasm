@@ -9,18 +9,18 @@ const EditCate = ({cate}) => {
     let history = useHistory();
     const {register, handleSubmit, errors, setValue} = useForm();
     
-    const onSubmit = event => {
-        Axios.post('http://localhost:8000/cate', event).then(res => {
+    const onSubmit = data => {
+        Axios.put('http://localhost:8000/cate', data).then(res => {
             console.log(res);
             history.push("/admin/cat") 
         })
     }
     useEffect(() => {
-       Axios.get(`http://localhost:8000/cate/${id}`).then(res => {
-            setValue("id", res.event.id);
-            setValue("title", res.event.title);
-       }) 
-    }, ([id]))
+        Axios.get(`http://localhost:8000/cate/${id}`).then(res => {
+            setValue("id", res.data.id);
+            setValue("title", res.data.title);
+        })
+    }, [id]);
 
     return (
         <div>

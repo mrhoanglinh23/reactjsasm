@@ -1,12 +1,13 @@
 import React, { useState, useEffect } from 'react'
 import PropTypes from 'prop-types'
-import { Link } from 'react-router-dom'
+import { Link, useParams } from 'react-router-dom'
 import axios from 'axios';
 
-const ProductList = ({products, onRemove}) => {
-    const removeHandle = (id) => {
-      onRemove(id)
-  }
+const ProductList = ({products, removeProduct}) => {
+    const { id } = useParams();
+    const onRemoveHandle = id => {
+      removeProduct(id)
+    }
     return (
         <div>
             <h1 className="h3 mb-2 text-gray-800">Tables</h1>
@@ -43,7 +44,7 @@ const ProductList = ({products, onRemove}) => {
                     <td>{product.noidung}</td>
                     <td>{product.description}</td>
                     <td><Link to={`/admin/products/edit/${product.id}`}><button className="btn btn-primary btn-sm" >Sửa</button></Link></td>
-                    <td><button className="btn btn-primary btn-sm" >Xóa</button></td>
+                    <td><button className="btn btn-primary btn-sm" onClick={() => onRemoveHandle(id)}> Xóa</button></td>
                   </tr> 
                 ))}
                 </tbody>

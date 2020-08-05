@@ -1,8 +1,6 @@
 import React, { useEffect } from 'react'
 import PropTypes from 'prop-types'
 import Axios from 'axios';
-import _ from "lodash";
-import {CKEditor} from '@ckeditor/ckeditor5-build-classic'
 import {useHistory} from 'react-router-dom'
 import { useForm } from 'react-hook-form';
 
@@ -28,18 +26,12 @@ const AddProduct = ({cate}) => {
                 <div className="form-group">
                     <label htmlFor="email">Tên SP</label>
                     <input type="text" className="form-control" name="namesp" ref={register({required: true, maxLength: 20})} />
-                    {_.get("namesp.type", errors) === "required" && (
-                        <p>This field is required</p>
-                    )}
-                    {_.get("namesp.type", errors) === "maxLength" && (
-                        <p>First name cannot exceed 20 characters</p>
-                    )}
                 </div>
                 <div className="form-group">
                     <label htmlFor="email">Danh mục</label>
                     <select className="form-inline" ref={register}>
                         {cate.map((cat, index) => (
-                            <option value={cat.title} key={index}>{cat.title}</option>
+                            <option value={cat.id} key={index}>{cat.title}</option>
                         ))}
                     </select>
                 </div>
@@ -65,7 +57,6 @@ const AddProduct = ({cate}) => {
                 </div>
                 <div className="form-group">
                   <label htmlFor="">Description</label>
-                  
                   <textarea className="ckeditor" name="description" cols="80" rows="10" ref={register}></textarea>
                   {errors.description && <span className="bg-danger">Nhập nội dung</span>}
                 </div>

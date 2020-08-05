@@ -1,12 +1,26 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import PropTypes from 'prop-types'
 import { useForm } from 'react-hook-form';
+import Axios from 'axios';
+import { useParams, useHistory } from 'react-router-dom';
 
 const EditProduct = ({cate, products}) => {
-    const {register, handleSubmit, errors} = useForm();
+    const { id } = useParams();
+    let history = useHistory();
+    const {register, handleSubmit, errors, setValue} = useForm();
     const onSubmit = event => {
-        
+        Axios.post('http://localhost:8000/cate', event).then(res => {
+            console.log(res);
+            history.push("/admin/cat") 
+        })
     }
+    useEffect(() => {
+       Axios.get(`http://localhost:8000/products/${id}`).then(res => {
+            setValue("id", res.event.id);
+            setValue("title", res.event.title);
+       }) 
+    }, ([id]))
+    
     return (
         <div>
             <form action="" onSubmit={handleSubmit(onSubmit)}>
@@ -17,8 +31,11 @@ const EditProduct = ({cate, products}) => {
                         <span className="bg-gradient-danger">Nhập tên sản phẩm</span>
                     )}
                     {errors.namesp && errors.namesp.type === "maxLength" && (
-                        <span className="bg-gradient-danger">Tối đa 10 ký tự</span>
+                        <span className="bg-gradient-danger">Tối đa 30 ký tự</span>
                     )}
+                </div>
+                <div className="form-group">
+                    <label htmlFor="email">Danh mục đã chọn: </label>    
                 </div>
                 <div className="form-group">
                     <label htmlFor="email">Danh mục</label>

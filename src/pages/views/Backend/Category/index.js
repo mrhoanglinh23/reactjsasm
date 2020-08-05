@@ -4,11 +4,13 @@ import { Link, useParams } from 'react-router-dom'
 import {useHistory} from 'react-router-dom'
 import { useForm } from 'react-hook-form';
 import Axios from 'axios';
+import { remove } from 'lodash';
 
-const CateList = ({cate, onRemove}) => {
+const CateList = ({cate, removeCate}) => {
     const { id } = useParams();
-    let history = useHistory();
-    
+    const onHandleRemove = id => {
+      removeCate(id)
+    }
     return (
         <div>
             <h1 className="h3 mb-2 text-gray-800">Tables</h1>
@@ -45,7 +47,7 @@ const CateList = ({cate, onRemove}) => {
                     <td>{index + 1}</td>
                     <td>{cat.title}</td>
                     <td><Link to={`/admin/cat/edit/${cat.id}`}><button className="btn btn-primary btn-sm" >Sửa</button></Link></td>
-                    <td><button className="btn btn-primary btn-sm" onClick>Xóa</button></td>
+                    <td><button className="btn btn-primary btn-sm" onClick={() => onHandleRemove(id)}>Xóa</button></td>
                   </tr>            
                 ))}
                 </tbody>
