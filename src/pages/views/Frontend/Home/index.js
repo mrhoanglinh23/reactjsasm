@@ -1,7 +1,8 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import { Link } from 'react-router-dom'
-const Home = ({cate, products}) => {
+
+const Home = ({products}) => {
     return (
         <div>
             <div className="site-blocks-cover" style={{backgroundImage: 'url(images/hero_1.jpg)'}} data-aos="fade">

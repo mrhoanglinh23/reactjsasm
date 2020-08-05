@@ -3,7 +3,10 @@ import PropTypes from 'prop-types'
 import { Link } from 'react-router-dom'
 import axios from 'axios';
 
-const ProductList = ({products}) => {
+const ProductList = ({products, onRemove}) => {
+    const removeHandle = (id) => {
+      onRemove(id)
+  }
     return (
         <div>
             <h1 className="h3 mb-2 text-gray-800">Tables</h1>
@@ -39,7 +42,7 @@ const ProductList = ({products}) => {
                     <td>${product.newprice}</td>
                     <td>{product.noidung}</td>
                     <td>{product.description}</td>
-                    <td><button className="btn btn-primary btn-sm" >Sửa</button></td>
+                    <td><Link to={`/admin/products/edit/${product.id}`}><button className="btn btn-primary btn-sm" >Sửa</button></Link></td>
                     <td><button className="btn btn-primary btn-sm" >Xóa</button></td>
                   </tr> 
                 ))}

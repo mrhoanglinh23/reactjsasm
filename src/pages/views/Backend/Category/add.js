@@ -8,7 +8,7 @@ const AddCate = () => {
     const {register, handleSubmit, errors} = useForm();
     let history = useHistory();
     const onSubmit = event => {
-        Axios.post('https://5f26d9ae0824d8001655ec71.mockapi.io/cate', event).then(res => {
+        Axios.post('http://localhost:8000/cate', event).then(res => {
             console.log(res);
             history.push("/admin/cat") 
         })
@@ -18,7 +18,7 @@ const AddCate = () => {
              <form action="" onSubmit={handleSubmit(onSubmit)}>
                 <div className="form-group">
                     <label htmlFor="email">Tên danh mục</label>
-                    <input type="text" className="form-control" name="title" ref={register({required: true})} />
+                    <input type="text" className="form-control" name="title" ref={register({ required: true, maxLength: 20 })} />
                     {errors.title && <span>Nhập tên danh mục</span>}
                 </div>
                 <button type="submit" className="btn btn-primary">Submit</button>

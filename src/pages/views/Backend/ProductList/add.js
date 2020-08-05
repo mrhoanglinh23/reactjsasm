@@ -1,6 +1,8 @@
 import React, { useEffect } from 'react'
 import PropTypes from 'prop-types'
 import Axios from 'axios';
+import _ from "lodash";
+import {CKEditor} from '@ckeditor/ckeditor5-build-classic'
 import {useHistory} from 'react-router-dom'
 import { useForm } from 'react-hook-form';
 
@@ -8,13 +10,14 @@ const AddProduct = ({cate}) => {
     const {register, handleSubmit, errors} = useForm();
     let history = useHistory();
     useEffect(() => {
-        Axios.get(`https://5f26d9ae0824d8001655ec71.mockapi.io/cate`).then(result => {
+        Axios.get(`http://localhost:8000/cate`).then(result => {
             console.log(result);
         })
     }, []);
 
-    const onSubmit = event => {
-        Axios.post('https://5f26d9ae0824d8001655ec71.mockapi.io/products', event).then(res => {
+    const onSubmit = data => {
+        console.log(data);
+        Axios.post('http://localhost:8000/products', data).then(res => {
             console.log(res);
             history.push("/admin/products")
         })
@@ -24,17 +27,21 @@ const AddProduct = ({cate}) => {
             <form action="" onSubmit={handleSubmit(onSubmit)}>
                 <div className="form-group">
                     <label htmlFor="email">Tên SP</label>
-                    <input type="text" className="form-control" name="namesp" ref={register({ required: true, maxLength: 30 })} />
-                    {errors.namesp && errors.namesp.type === "required" && (
-                        <span className="bg-gradient-danger">Nhập tên sản phẩm</span>
+                    <input type="text" className="form-control" name="namesp" ref={register({required: true, maxLength: 20})} />
+                    {_.get("namesp.type", errors) === "required" && (
+                        <p>This field is required</p>
                     )}
-                    {errors.namesp && errors.namesp.type === "maxLength" && (
-                        <span className="bg-gradient-danger">Tối đa 10 ký tự</span>
+                    {_.get("namesp.type", errors) === "maxLength" && (
+                        <p>First name cannot exceed 20 characters</p>
                     )}
                 </div>
                 <div className="form-group">
                     <label htmlFor="email">Danh mục</label>
-                    
+                    <select className="form-inline" ref={register}>
+                        {cate.map((cat, index) => (
+                            <option value={cat.title} key={index}>{cat.title}</option>
+                        ))}
+                    </select>
                 </div>
                 <div className="form-group">
                     <label htmlFor="email">Ảnh</label>
@@ -53,12 +60,13 @@ const AddProduct = ({cate}) => {
                 </div>
                 <div className="form-group">
                   <label htmlFor="">Nội dung</label>
-                  <textarea class="form-control" name="noidung" rows="1" ref={register({required: true})}></textarea>
+                  <textarea class="form-control" name="noidung" rows="1" ref={register}></textarea>
                   {errors.noidung && <span className="bg-danger">Nhập nội dung ngắn</span>}
                 </div>
                 <div className="form-group">
                   <label htmlFor="">Description</label>
-                  <textarea className="ckeditor" name="description" cols="80" rows="10" ref={register({required: true})}></textarea>
+                  
+                  <textarea className="ckeditor" name="description" cols="80" rows="10" ref={register}></textarea>
                   {errors.description && <span className="bg-danger">Nhập nội dung</span>}
                 </div>
                 <button type="submit" className="btn btn-primary">Submit</button>

@@ -1,0 +1,33 @@
+{
+  "cate": [
+    {
+      "id": 1,
+      "title": "Apple",
+      "anh": "anh 1"
+    },
+    {
+      "title": "Web Developer",
+      "id": 2
+    }
+  ],
+  "products": [
+    {
+      "id": 1,
+      "namesp": "Iphone 6",
+      "anh": "image 1",
+      "oldprice": 30,
+      "newprice": 20,
+      "noidung": "nội dung1",
+      "description": "idhfoidffejfoierf",
+      "cateId": 1
+    },
+    {
+      "namesp": "Iphone 6",
+      "oldprice": "29",
+      "newprice": "41",
+      "noidung": "fgfdgfghrtgdweqwdawasx",
+      "description": "",
+      "id": 2
+    }
+  ]
+}

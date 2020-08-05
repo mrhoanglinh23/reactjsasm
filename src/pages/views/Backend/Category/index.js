@@ -5,14 +5,10 @@ import {useHistory} from 'react-router-dom'
 import { useForm } from 'react-hook-form';
 import Axios from 'axios';
 
-const CateList = ({cate}) => {
+const CateList = ({cate, onRemove}) => {
     const { id } = useParams();
     let history = useHistory();
-    useEffect(() => {
-        Axios.get(`https://5f26d9ae0824d8001655ec71.mockapi.io/cate/${id}`).then(result => {
-            console.log(result);
-        })
-    }, [id]);
+    
     return (
         <div>
             <h1 className="h3 mb-2 text-gray-800">Tables</h1>
@@ -48,8 +44,8 @@ const CateList = ({cate}) => {
                   <tr key={index}>
                     <td>{index + 1}</td>
                     <td>{cat.title}</td>
-                    <td><Link to="/admin/cat/edit"><button className="btn btn-primary btn-sm" >Sửa</button></Link></td>
-                    <td><button className="btn btn-primary btn-sm" >Xóa</button></td>
+                    <td><Link to={`/admin/cat/edit/${cat.id}`}><button className="btn btn-primary btn-sm" >Sửa</button></Link></td>
+                    <td><button className="btn btn-primary btn-sm" onClick>Xóa</button></td>
                   </tr>            
                 ))}
                 </tbody>
