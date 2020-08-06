@@ -1,10 +1,11 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+import { Link } from 'react-router-dom'
 
 const Header = props => {
     return (
         <div>
-            <header className="site-navbar" role="banner">
+          <header className="site-navbar" role="banner">
           <div className="site-navbar-top">
             <div className="container">
               <div className="row align-items-center">
@@ -41,20 +42,7 @@ const Header = props => {
             <div className="container">
               <ul className="site-menu js-clone-nav d-none d-md-block">
                 <li className="has-children active">
-                  <a href="index.html">Home</a>
-                  <ul className="dropdown">
-                    <li><a href="#">Menu One</a></li>
-                    <li><a href="#">Menu Two</a></li>
-                    <li><a href="#">Menu Three</a></li>
-                    <li className="has-children">
-                      <a href="#">Sub Menu</a>
-                      <ul className="dropdown">
-                        <li><a href="#">Menu One</a></li>
-                        <li><a href="#">Menu Two</a></li>
-                        <li><a href="#">Menu Three</a></li>
-                      </ul>
-                    </li>
-                  </ul>
+                  <Link to={`/`}>Home</Link>
                 </li>
                 <li className="has-children">
                   <a href="about.html">About</a>
@@ -64,10 +52,11 @@ const Header = props => {
                     <li><a href="#">Menu Three</a></li>
                   </ul>
                 </li>
-                <li><a href="shop.html">Shop</a></li>
+                <li><Link to={`/products`}>Shop</Link></li>
                 <li><a href="#">Catalogue</a></li>
                 <li><a href="#">New Arrivals</a></li>
                 <li><a href="contact.html">Contact</a></li>
+                <li><Link to={`/products`}>Blog</Link></li>
               </ul>
             </div>
           </nav>

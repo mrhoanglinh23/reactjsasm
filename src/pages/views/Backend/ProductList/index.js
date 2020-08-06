@@ -3,11 +3,7 @@ import PropTypes from 'prop-types'
 import { Link, useParams } from 'react-router-dom'
 import axios from 'axios';
 
-const ProductList = ({products, removeProduct}) => {
-    const { id } = useParams();
-    const onRemoveHandle = id => {
-      removeProduct(id)
-    }
+const ProductList = (props) => {
     return (
         <div>
             <h1 className="h3 mb-2 text-gray-800">Tables</h1>
@@ -34,17 +30,17 @@ const ProductList = ({products, removeProduct}) => {
                   </tr>
                 </thead>
                 <tbody>
-                {products.map((product, index) => (
+                {props.products.map((product, index) => (
                   <tr key={index}>
                     <td>{index + 1}</td>
                     <td>{product.namesp}</td>
-                    <td>{product.anh}</td>
+                    <td><img src></img></td>
                     <td>${product.oldprice}</td>
                     <td>${product.newprice}</td>
                     <td>{product.noidung}</td>
                     <td>{product.description}</td>
                     <td><Link to={`/admin/products/edit/${product.id}`}><button className="btn btn-primary btn-sm" >Sửa</button></Link></td>
-                    <td><button className="btn btn-primary btn-sm" onClick={() => onRemoveHandle(id)}> Xóa</button></td>
+                    <td><button className="btn btn-primary btn-sm" onClick={() => props.deleteProducts(product.id)}> Xóa</button></td>
                   </tr> 
                 ))}
                 </tbody>

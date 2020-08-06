@@ -36,6 +36,11 @@ const Sidebar = props => {
                 <i className="fas fa-fw fa-table" />
                 <span>ProductList</span></Link>
             </li>
+            <li className="nav-item">
+            <Link className="nav-link" to="/admin/baiviet">
+                <i className="fas fa-fw fa-table" />
+                <span>Bài viết</span></Link>
+            </li>
             {/* Divider */}
             <hr className="sidebar-divider d-none d-md-block" />
             {/* Sidebar Toggler (Sidebar) */}

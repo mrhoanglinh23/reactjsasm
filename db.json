@@ -1,31 +1,20 @@
 {
   "cate": [
     {
-      "id": 1,
-      "title": "Không có danh mục",
-      "anh": "anh 1"
-    },
-    {
-      "title": "Apple",
-      "id": 2
-    },
-    {
       "title": "Oppo",
-      "id": 3
+      "id": 1
     }
   ],
   "products": [
     {
-      "id": 1,
       "namesp": "Iphone 6",
-      "anh": "image 1",
-      "oldprice": 30,
-      "newprice": 20,
+      "oldprice": "30",
+      "newprice": "20",
       "noidung": "nội dung1",
-      "description": "idhfoidffejfoierf",
-      "cateId": 1
+      "description": "Đây là sản phẩm hoàn toàn mới",
+      "id": 1
     }
-  ], 
+  ],
   "danhmucbv": [
     {
       "id": 1,

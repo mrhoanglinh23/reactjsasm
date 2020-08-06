@@ -1,13 +1,8 @@
-import React, { useEffect, useState } from 'react'
+import React from 'react'
 import PropTypes from 'prop-types'
-import { Link, useParams } from 'react-router-dom'
-import {useHistory} from 'react-router-dom'
-import { useForm } from 'react-hook-form';
-import Axios from 'axios';
-import { remove } from 'lodash';
+import { Link } from 'react-router-dom'
 
-const CateList = (props) => {
-    const { id } = useParams();
+const Baivietlist = (props) => {
     return (
         <div>
             <h1 className="h3 mb-2 text-gray-800">Tables</h1>
@@ -39,12 +34,13 @@ const CateList = (props) => {
                   </tr>
                 </tfoot>
                 <tbody>
-                {props.cate.map((cat, index) => (
+                {props.baiviet.map((bv, index) => (
                   <tr key={index}>
                     <td>{index + 1}</td>
-                    <td>{cat.title}</td>
-                    <td><Link to={`/admin/cat/edit/${cat.id}`}><button className="btn btn-primary btn-sm" >Sửa</button></Link></td>
-                    <td><button className="btn btn-primary btn-sm" onClick={() => props.deleteCate(cat.id)}>Xóa</button></td>
+                    <td>{bv.title}</td>
+                    <td>{bv.description}</td>
+                    <td><button className="btn btn-primary btn-sm" >Sửa</button></td>
+                    <td><button className="btn btn-primary btn-sm">Xóa</button></td>
                   </tr>            
                 ))}
                 </tbody>
@@ -56,8 +52,8 @@ const CateList = (props) => {
     )
 }
 
-CateList.propTypes = {
+Baivietlist.propTypes = {
 
 }
 
-export default CateList
+export default Baivietlist

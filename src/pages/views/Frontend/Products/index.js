@@ -1,8 +1,7 @@
 import React from 'react'
-import PropTypes from 'prop-types'
-import { Link } from 'react-router-dom'
 
-const Products = ({products}) => {
+const Products = (props) => {
+
     return (
         <div>
             <div className="bg-light py-3">
@@ -45,22 +44,46 @@ const Products = ({products}) => {
                   </div>
                 </div>
                 <div className="row mb-5">
-
-                  {products.map((product, index) => (
+                  {props.products.map((product) => (
                     <div className="col-sm-6 col-lg-4 mb-4" data-aos="fade-up">
+                        <div className="block-4 text-center border">
+                        <figure className="block-4-image">
+                            <a href="shop-single.html"><img src="images/cloth_2.jpg" alt="Image placeholder" className="img-fluid" /></a>
+                        </figure>
+                        <div className="block-4-text p-4">
+                            <h3><a href="shop-single.html">{product.namesp}</a></h3>
+                            <p className="mb-0">{product.noidung}</p>
+                            <p className="text-primary font-weight-bold">Old Price <s>${product.oldprice}</s></p>
+                            <p className="text-primary font-weight-bold">${product.newprice}</p>
+                        </div>
+                        </div>
+                    </div>
+                    ))}
+                  <div className="col-sm-6 col-lg-4 mb-4" data-aos="fade-up">
                     <div className="block-4 text-center border">
                       <figure className="block-4-image">
-                        <Link to=""><img src="images/cloth_1.jpg" alt="Image placeholder" className="img-fluid" /></Link>
+                        <a href="shop-single.html"><img src="images/cloth_1.jpg" alt="Image placeholder" className="img-fluid" /></a>
                       </figure>
                       <div className="block-4-text p-4">
-                        <h3><a href="shop-single.html">{product.namesp}</a></h3>
-                        <p className="mb-0">{product.noidung}</p>
-                        <p className="text-primary font-weight-bold">{product.price}</p>
+                        <h3><a href="shop-single.html">Tank Top</a></h3>
+                        <p className="mb-0">Finding perfect t-shirt</p>
+                        <p className="text-primary font-weight-bold">$50</p>
                       </div>
                     </div>
                   </div>
-                  ))}
                   
+                  <div className="col-sm-6 col-lg-4 mb-4" data-aos="fade-up">
+                    <div className="block-4 text-center border">
+                      <figure className="block-4-image">
+                        <a href="shop-single.html"><img src="images/cloth_2.jpg" alt="Image placeholder" className="img-fluid" /></a>
+                      </figure>
+                      <div className="block-4-text p-4">
+                        <h3><a href="shop-single.html">Polo Shirt</a></h3>
+                        <p className="mb-0">Finding perfect products</p>
+                        <p className="text-primary font-weight-bold">$50</p>
+                      </div>
+                    </div>
+                  </div>
                 </div>
                 <div className="row" data-aos="fade-up">
                   <div className="col-md-12 text-center">
@@ -173,10 +196,6 @@ const Products = ({products}) => {
         </div>
         </div>
     )
-}
-
-Products.propTypes = {
-
 }
 
 export default Products

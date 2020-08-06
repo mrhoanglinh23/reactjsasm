@@ -18,6 +18,7 @@ const AddProduct = ({cate}) => {
         Axios.post('http://localhost:8000/products', data).then(res => {
             console.log(res);
             history.push("/admin/products")
+            alert('Đã thêm thành công');
         })
     }
     return (
@@ -26,6 +27,7 @@ const AddProduct = ({cate}) => {
                 <div className="form-group">
                     <label htmlFor="email">Tên SP</label>
                     <input type="text" className="form-control" name="namesp" ref={register({required: true, maxLength: 20})} />
+                    {errors.namesp && errors.namesp.type === "required" && <span className="bg-danger">Nhập tên sản phẩm</span>}
                 </div>
                 <div className="form-group">
                     <label htmlFor="email">Danh mục</label>
@@ -37,8 +39,19 @@ const AddProduct = ({cate}) => {
                 </div>
                 <div className="form-group">
                     <label htmlFor="email">Ảnh</label>
-                    <input type="file" className="form-control" name="anh" />
-                    {errors.anh && <span className="bg-danger">Chọn ảnh</span>}
+                    <input type="text" 
+                    className="form-control" 
+                    name="anh" 
+                    ref={
+                        register({
+                          required: true,  
+                          pattern: {
+                            value: /(http(s?):)([/|.|\w|\s|-])*\.(?:jpg|gif|png)/
+                          }
+                        })
+                      } />
+                    {errors.anh && errors.anh.type === "required" && <span className="bg-danger">Nhập ảnh</span>}
+                    {errors.anh && errors.anh.type === "value" && <span className="bg-danger">Nhập đường dẫn ảnh</span>}
                 </div>
                 <div className="form-group">
                     <label htmlFor="email">Old Price</label>

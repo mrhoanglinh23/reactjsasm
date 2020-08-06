@@ -11,6 +11,7 @@ const AddCate = () => {
         Axios.post('http://localhost:8000/cate', event).then(res => {
             console.log(res);
             history.push("/admin/cat") 
+            alert('Đã thêm danh mục thành công');
         })
     }
     return (

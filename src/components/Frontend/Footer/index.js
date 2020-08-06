@@ -4,7 +4,7 @@ import PropTypes from 'prop-types'
 const Footer = props => {
     return (
         <div>
-            <footer className="site-footer border-top">
+           <footer className="site-footer border-top">
           <div className="container">
             <div className="row">
               <div className="col-lg-6 mb-5 mb-lg-0">

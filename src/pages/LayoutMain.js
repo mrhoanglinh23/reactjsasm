@@ -7,10 +7,10 @@ const LayoutMain = ({children}) => {
     return (
         <div>
           <div className="site-wrap">
-        <Header />
-        {children}
-        <Footer />
-      </div>
+          <Header />
+          {children}
+          <Footer />
+          </div>
         </div>
     )
 }
