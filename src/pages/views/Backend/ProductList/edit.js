@@ -58,7 +58,8 @@ const EditProduct = (props) => {
                 </div>
                 <div className="form-group">
                     <label htmlFor="email">Ảnh</label>
-                    <input type="file" className="form-control" name="anh" />
+                    <input type="text" className="form-control" name="anh" />
+                    <img src={products.anh} width="200"></img>
                     {errors.anh && <span className="bg-danger">Chọn ảnh</span>}
                 </div>
                 <div className="form-group">

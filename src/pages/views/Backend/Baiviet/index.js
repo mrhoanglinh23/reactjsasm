@@ -20,17 +20,19 @@ const Baivietlist = (props) => {
                 <thead>
                   <tr>
                     <th>#</th>
-                    <th>Name</th>
-                    <th></th>
-                    <th></th>
+                    <th>Title</th>
+                    <th>Description</th>
+                    <th>Sửa</th>
+                    <th>Xóa</th>
                   </tr>
                 </thead>
                 <tfoot>
                   <tr>
                     <th>#</th>
-                    <th>Name</th>
-                    <th></th>
-                    <th></th>
+                    <th>Title</th>
+                    <th>Description</th>
+                    <th>Sửa</th>
+                    <th>Xóa</th>
                   </tr>
                 </tfoot>
                 <tbody>

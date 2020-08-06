@@ -16,9 +16,9 @@ import EditProduct from './pages/views/Backend/ProductList/edit';
 // Mainpage
 import Home from './pages/views/Frontend/Home';
 import Products from './pages/views/Frontend/Products';
-
 import ProductDetails from './pages/views/Frontend/ProductDetails';
 import Contact from './pages/views/Frontend/Contact';
+
 import Axios from 'axios';
 function App() {
   const[products, setProducts] = useState([]);

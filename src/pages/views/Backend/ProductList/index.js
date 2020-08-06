@@ -1,9 +1,18 @@
 import React, { useState, useEffect } from 'react'
 import PropTypes from 'prop-types'
-import { Link, useParams } from 'react-router-dom'
+import { Link, useParams, useHistory } from 'react-router-dom'
 import axios from 'axios';
+import Axios from 'axios';
 
 const ProductList = (props) => {
+  const {id} = useParams();
+  let history = useHistory();
+    const removeProduct = id => {
+      let remove = window.confirm('Are you sure?');
+      Axios.delete(`http://localhost:8000/products/${id}`).then(res => {
+        history.push('/admin/products');
+      })
+    }
     return (
         <div>
             <h1 className="h3 mb-2 text-gray-800">Tables</h1>
@@ -34,13 +43,13 @@ const ProductList = (props) => {
                   <tr key={index}>
                     <td>{index + 1}</td>
                     <td>{product.namesp}</td>
-                    <td><img src></img></td>
+                    <td><img src={product.anh} width="200"></img></td>
                     <td>${product.oldprice}</td>
                     <td>${product.newprice}</td>
                     <td>{product.noidung}</td>
                     <td>{product.description}</td>
                     <td><Link to={`/admin/products/edit/${product.id}`}><button className="btn btn-primary btn-sm" >Sửa</button></Link></td>
-                    <td><button className="btn btn-primary btn-sm" onClick={() => props.deleteProducts(product.id)}> Xóa</button></td>
+                    <td><button className="btn btn-primary btn-sm" onClick={() => removeProduct(id)}> Xóa</button></td>
                   </tr> 
                 ))}
                 </tbody>

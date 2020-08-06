@@ -3,16 +3,30 @@
     {
       "title": "Oppo",
       "id": 1
+    },
+    {
+      "title": "Apple",
+      "id": 2
     }
   ],
   "products": [
     {
       "namesp": "Iphone 6",
+      "anh": "https://clickbuy.com.vn/uploads/2019/03/iphoneX-space-gray-600x600.png",
       "oldprice": "30",
-      "newprice": "20",
-      "noidung": "nội dung1",
-      "description": "Đây là sản phẩm hoàn toàn mới",
+      "newprice": "25",
+      "noidung": "Nội dung mới",
+      "description": "Hello there",
       "id": 1
+    },
+    {
+      "namesp": "Oppo Reno 5",
+      "anh": "https://phoneaqua.com/products/Oppo-Reno-5.jpg",
+      "oldprice": "34",
+      "newprice": "20",
+      "noidung": "Oppo Reno mới",
+      "description": "Hello there",
+      "id": 2
     }
   ],
   "danhmucbv": [

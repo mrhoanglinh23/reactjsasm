@@ -107,7 +107,8 @@ const Home = (props) => {
                     <div className="item">
                     <div className="block-4 text-center">
                       <figure className="block-4-image">
-                        <img src="images/shoe_1.jpg" alt="Image placeholder" className="img-fluid" />
+                        <br />
+                        <img src={product.anh} width="100" alt="Image placeholder" className="img-fluid" />
                       </figure>
                       <div className="block-4-text p-4">
                         <h3><Link to={`/details/${id}`}>{product.namesp}</Link></h3>

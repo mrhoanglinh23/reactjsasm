@@ -19,8 +19,9 @@ const AddCate = () => {
              <form action="" onSubmit={handleSubmit(onSubmit)}>
                 <div className="form-group">
                     <label htmlFor="email">Tên danh mục</label>
-                    <input type="text" className="form-control" name="title" ref={register({ required: true, maxLength: 20 })} />
-                    {errors.title && <span>Nhập tên danh mục</span>}
+                    <input type="text" className="form-control" name="title" ref={register({ required: true, maxLength: 15 })} />
+                    {errors.title && errors.title.type === "required" && <span className="alert-danger">Nhập tên danh mục</span>}
+                    {errors.title  && errors.title.type === "maxLength" && <span className="alert-danger">Tối đa 15 ký tự</span>}
                 </div>
                 <button type="submit" className="btn btn-primary">Submit</button>
             </form>

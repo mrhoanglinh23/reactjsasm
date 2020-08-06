@@ -1,7 +1,8 @@
 import React from 'react'
+import { Link, useParams } from 'react-router-dom'
 
 const Products = (props) => {
-
+  const { id } = useParams();
     return (
         <div>
             <div className="bg-light py-3">
@@ -48,13 +49,13 @@ const Products = (props) => {
                     <div className="col-sm-6 col-lg-4 mb-4" data-aos="fade-up">
                         <div className="block-4 text-center border">
                         <figure className="block-4-image">
-                            <a href="shop-single.html"><img src="images/cloth_2.jpg" alt="Image placeholder" className="img-fluid" /></a>
+                            <Link to={`/details/${id}`}><img src={product.anh} width="100" alt="Image placeholder" className="img-fluid" /></Link>
                         </figure>
                         <div className="block-4-text p-4">
-                            <h3><a href="shop-single.html">{product.namesp}</a></h3>
+                            <h3><Link to={`/details/${id}`}>{product.namesp}</Link></h3>
                             <p className="mb-0">{product.noidung}</p>
-                            <p className="text-primary font-weight-bold">Old Price <s>${product.oldprice}</s></p>
-                            <p className="text-primary font-weight-bold">${product.newprice}</p>
+                            <p className="text-primary font-weight-bold">Old Price: <s>${product.oldprice}</s></p>
+                            <p className="text-primary font-weight-bold">New Price: ${product.newprice}</p>
                         </div>
                         </div>
                     </div>
@@ -62,20 +63,7 @@ const Products = (props) => {
                   <div className="col-sm-6 col-lg-4 mb-4" data-aos="fade-up">
                     <div className="block-4 text-center border">
                       <figure className="block-4-image">
-                        <a href="shop-single.html"><img src="images/cloth_1.jpg" alt="Image placeholder" className="img-fluid" /></a>
-                      </figure>
-                      <div className="block-4-text p-4">
-                        <h3><a href="shop-single.html">Tank Top</a></h3>
-                        <p className="mb-0">Finding perfect t-shirt</p>
-                        <p className="text-primary font-weight-bold">$50</p>
-                      </div>
-                    </div>
-                  </div>
-                  
-                  <div className="col-sm-6 col-lg-4 mb-4" data-aos="fade-up">
-                    <div className="block-4 text-center border">
-                      <figure className="block-4-image">
-                        <a href="shop-single.html"><img src="images/cloth_2.jpg" alt="Image placeholder" className="img-fluid" /></a>
+                        
                       </figure>
                       <div className="block-4-text p-4">
                         <h3><a href="shop-single.html">Polo Shirt</a></h3>
