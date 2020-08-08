@@ -1,13 +1,19 @@
 import React, { useEffect, useState } from 'react'
-import PropTypes from 'prop-types'
 import { Link, useParams } from 'react-router-dom'
 import {useHistory} from 'react-router-dom'
-import { useForm } from 'react-hook-form';
 import Axios from 'axios';
-import { remove } from 'lodash';
 
 const CateList = (props) => {
     const { id } = useParams();
+    let history = useHistory();
+    const removeCate = id => {
+      let remove = window.confirm('Are you sure?');
+      Axios.delete(`http://localhost:8000/cate/${id}`).then(res => {
+        history.push('/admin/cat');
+        alert('Đã xóa thành công');
+        window.location.reload();
+      })
+    }
     return (
         <div>
             <h1 className="h3 mb-2 text-gray-800">Tables</h1>
@@ -26,16 +32,18 @@ const CateList = (props) => {
                   <tr>
                     <th>#</th>
                     <th>Name</th>
-                    <th></th>
-                    <th></th>
+                    <th>Ảnh</th>
+                    <th>Sửa</th>
+                    <th>Xóa</th>
                   </tr>
                 </thead>
                 <tfoot>
                   <tr>
                     <th>#</th>
                     <th>Name</th>
-                    <th></th>
-                    <th></th>
+                    <th>Ảnh</th>
+                    <th>Sửa</th>
+                    <th>Xóa</th>
                   </tr>
                 </tfoot>
                 <tbody>
@@ -43,8 +51,9 @@ const CateList = (props) => {
                   <tr key={index}>
                     <td>{index + 1}</td>
                     <td>{cat.title}</td>
+                    <td><img src={cat.image}></img></td>
                     <td><Link to={`/admin/cat/edit/${cat.id}`}><button className="btn btn-primary btn-sm" >Sửa</button></Link></td>
-                    <td><button className="btn btn-primary btn-sm" onClick={() => props.deleteCate(cat.id)}>Xóa</button></td>
+                    <td><button className="btn btn-primary btn-sm" onClick={() => removeCate(cat.id)}>Xóa</button></td>
                   </tr>            
                 ))}
                 </tbody>

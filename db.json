@@ -1,31 +1,43 @@
 {
   "cate": [
     {
-      "title": "Oppo",
+      "title": "Không có danh mục",
       "id": 1
     },
     {
-      "title": "Apple",
+      "title": "Oppo",
       "id": 2
+    },
+    {
+      "title": "Oppo 2",
+      "image": {
+        "0": {}
+      },
+      "id": 3
     }
   ],
   "products": [
     {
-      "namesp": "Iphone 6",
-      "anh": "https://clickbuy.com.vn/uploads/2019/03/iphoneX-space-gray-600x600.png",
-      "oldprice": "30",
-      "newprice": "25",
-      "noidung": "Nội dung mới",
-      "description": "Hello there",
+      "namesp": "Asus Strix G531",
+      "anh": {
+        "0": {}
+      },
+      "oldprice": "40",
+      "newprice": "30",
+      "noidung": "Tiêu đề 1",
+      "description": "Nouifberiugnoinoiernf",
       "id": 1
     },
     {
       "namesp": "Oppo Reno 5",
-      "anh": "https://phoneaqua.com/products/Oppo-Reno-5.jpg",
-      "oldprice": "34",
+      "anh": {
+        "0": {}
+      },
+      "oldprice": "30",
       "newprice": "20",
-      "noidung": "Oppo Reno mới",
-      "description": "Hello there",
+      "noidung": "Tiêu đề 1",
+      "description": "đây là nội dung 1 ",
+      "cateId": "undefined",
       "id": 2
     }
   ],
@@ -42,9 +54,13 @@
   ],
   "baiviet": [
     {
-      "id": 1,
-      "title": "This is new Upload",
-      "description": "My name is something"
+      "title": "Blog Asus Shop News ",
+      "description": "regrvdfvcscd",
+      "image": {
+        "0": {}
+      },
+      "ngaydang": "2020-08-07",
+      "id": 1
     }
   ]
 }

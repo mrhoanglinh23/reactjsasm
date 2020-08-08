@@ -1,11 +1,15 @@
 import React, { useEffect } from 'react'
 import PropTypes from 'prop-types'
 import Axios from 'axios';
-import {useHistory} from 'react-router-dom'
+import CKEditor from '@ckeditor/ckeditor5-react';
+import firebase from '../../../../firebase'
+import {useHistory, useParams} from 'react-router-dom'
 import { useForm } from 'react-hook-form';
+import { storage } from 'firebase';
 
 const AddProduct = ({cate}) => {
     const {register, handleSubmit, errors} = useForm();
+    const {id} = useParams();
     let history = useHistory();
     useEffect(() => {
         Axios.get(`http://localhost:8000/cate`).then(result => {
@@ -13,14 +17,20 @@ const AddProduct = ({cate}) => {
         })
     }, []);
 
-    const onSubmit = data => {
-        console.log(data);
-        Axios.post('http://localhost:8000/products', data).then(res => {
-            console.log(res);
-            history.push("/admin/products")
-            alert('Đã thêm thành công');
+    const onSubmit = (data) => {
+        let file = data.anh[0];
+        let storageRef = firebase.storage().ref(`images/${file.name}`);
+        storageRef.put(file).then(function(){
+            storageRef.getDownloadURL().then((url) => {
+                console.log(url);
+                Axios.post(`http://localhost:8000/cate/${id}/products`, data).then(res => {
+                    history.push('/admin/products');
+                    alert('Đã thêm thành công');
+                    window.location.reload();
+                })
+            })
         })
-    }
+    }    
     return (
         <div>
             <form action="" onSubmit={handleSubmit(onSubmit)}>
@@ -31,37 +41,34 @@ const AddProduct = ({cate}) => {
                 </div>
                 <div className="form-group">
                     <label htmlFor="email">Danh mục</label>
-                    <select className="form-inline" name="cateid">
-                        {cate.map((cat, index) => (
-                            <option value={cat.id} key={index}>{cat.title}</option>
+                    <select className="form-inline" name="catename">
+                        <option>Không có danh mục</option>
+                        {cate.map((cat, index) => (      
+                            <option value={cat.name} key={index}>{cat.title}</option>
                         ))}
                     </select>
                 </div>
                 <div className="form-group">
                     <label htmlFor="email">Ảnh</label>
-                    <input type="text" 
+                    <input type="file" 
                     className="form-control" 
                     name="anh" 
                     ref={
                         register({
                           required: true,  
-                          pattern: {
-                            value: /(http(s?):)([/|.|\w|\s|-])*\.(?:jpg|gif|png)/
-                          }
                         })
                       } />
                     {errors.anh && errors.anh.type === "required" && <span className="alert-danger">Nhập ảnh</span>}
-                    {errors.anh && errors.anh.type === "pattern" && <span className="alert-danger">Nhập đường dẫn ảnh</span>}
                 </div>
                 <div className="form-group">
-                    <label htmlFor="email">Old Price</label>
+                    <label htmlFor="email">Regular Price</label>
                     <input type="number" className="form-control" name="oldprice" ref={register({required: true})} />
                     {errors.oldprice && errors.oldprice.type === "required" && <span className="alert-danger">Nhập giá thường</span>}
                 </div>
                 <div className="form-group">
-                    <label htmlFor="email">New Price</label>
+                    <label htmlFor="email">Sale Price</label>
                     <input type="number" className="form-control" name="newprice" ref={register({required: true})} />
-                    {errors.newprice && errors.newprice.type === "required" && <span className="alert-danger">Nhập giá mới</span>}
+                    {errors.newprice && errors.newprice.type === "required" && <span className="alert-danger">Nhập giảm giá</span>}
                 </div>
                 <div className="form-group">
                   <label htmlFor="">Nội dung ngắn</label>

@@ -1,5 +1,5 @@
 import React,{useState,useEffect} from 'react';
-import {BrowserRouter as Router, Route, Switch} from 'react-router-dom'
+import {BrowserRouter as Router, Route, Switch, useParams} from 'react-router-dom'
 import LayoutAdmin from './pages/LayoutAdmin';
 import LayoutMain from './pages/LayoutMain';
 
@@ -20,6 +20,7 @@ import ProductDetails from './pages/views/Frontend/ProductDetails';
 import Contact from './pages/views/Frontend/Contact';
 
 import Axios from 'axios';
+import AddBaiviet from './pages/views/Backend/Baiviet/add';
 function App() {
   const[products, setProducts] = useState([]);
   const[cate, setCate] = useState([]);
@@ -57,20 +58,25 @@ function App() {
                 <Route exact path="/admin">
                   <Dashboard />
                 </Route>
+
                 <Route exact path="/admin/cat">
                   <CateList cate={cate}/>
                 </Route>
                 <Route exact path="/admin/products">
                   <ProductList products={products} />
                 </Route>
-                <Route exact path="/admin/products/add">
-                  <AddProduct cate={cate} />
-                </Route>
                 <Route exact path="/admin/baiviet">
                   <Baivietlist baiviet={baiviet} />
                 </Route>
+                {/* Thêm */}
+                <Route exact path="/admin/products/add">
+                  <AddProduct cate={cate} />
+                </Route>
                 <Route exact path="/admin/cat/add">
                   <AddCate />
+                </Route>
+                <Route exact path="/admin/baiviet/add">
+                  <AddBaiviet />
                 </Route>
                 <Route exact path="/admin/cat/edit/:id">
                   <EditCate cate={cate}/>
@@ -90,7 +96,7 @@ function App() {
                 <Route exact path="/products">
                   <Products products={products}/>
                 </Route>
-                <Route exact path="/details/:id">
+                <Route exact path="/products/details/:id">
                   <ProductDetails products={products}/>
                 </Route>
                 <Route exact path="/contact">

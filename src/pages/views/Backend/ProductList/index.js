@@ -11,6 +11,7 @@ const ProductList = (props) => {
       let remove = window.confirm('Are you sure?');
       Axios.delete(`http://localhost:8000/products/${id}`).then(res => {
         history.push('/admin/products');
+        window.location.reload();
       })
     }
     return (
@@ -36,6 +37,9 @@ const ProductList = (props) => {
                     <th>Giá mới</th>
                     <th>Tiêu đề</th>
                     <th>Nội dung</th>
+                    <th>Danh mục</th>
+                    <th></th>
+                    <th></th>
                   </tr>
                 </thead>
                 <tbody>
@@ -48,8 +52,9 @@ const ProductList = (props) => {
                     <td>${product.newprice}</td>
                     <td>{product.noidung}</td>
                     <td>{product.description}</td>
+                    <td>{product.cateID}</td>
                     <td><Link to={`/admin/products/edit/${product.id}`}><button className="btn btn-primary btn-sm" >Sửa</button></Link></td>
-                    <td><button className="btn btn-primary btn-sm" onClick={() => removeProduct(id)}> Xóa</button></td>
+                    <td><button className="btn btn-primary btn-sm" onClick={() => removeProduct(product.id)}> Xóa</button></td>
                   </tr> 
                 ))}
                 </tbody>
