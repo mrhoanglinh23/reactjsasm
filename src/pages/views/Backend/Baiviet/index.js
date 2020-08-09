@@ -1,19 +1,15 @@
-import React, { useEffect, useState } from 'react'
-import { Link, useParams } from 'react-router-dom'
-import {useHistory} from 'react-router-dom'
+import React, { useState, useEffect } from 'react'
+import { Link, useParams, useHistory } from 'react-router-dom'
 import Axios from 'axios';
 
 const Baivietlist = (props) => {
-    const { id } = useParams();
-    let history = useHistory();
-    const removeCate = id => {
-      let remove = window.confirm('Are you sure?');
-      Axios.delete(`http://localhost:8000/baiviet/${id}`).then(res => {
-        history.push('/admin/baiviet');
-        alert('Đã xóa thành công');
-        window.location.reload();
-      })
-    }
+    const {id} = useParams();
+      const removeBlog = id => {
+        let remove = window.confirm('Are you sure?');
+        Axios.delete(`http://localhost:8000/baiviet/${id}`).then(res => {
+          window.location.reload();
+        })
+      }
     return (
         <div>
             <h1 className="h3 mb-2 text-gray-800">Tables</h1>
@@ -58,8 +54,8 @@ const Baivietlist = (props) => {
                     <td>{blog.description}</td>
                     <td><img src={blog.anh}></img></td>
                     <td>{blog.ngaydang}</td>
-                    <td><button className="btn btn-primary btn-sm" >Sửa</button></td>
-                    <td><button className="btn btn-primary btn-sm">Xóa</button></td>
+                    <td><Link to={`/admin/baiviet/edit/${blog.id}`}><button className="btn btn-primary btn-sm">Sửa</button></Link></td>
+                    <td><button className="btn btn-primary btn-sm" onClick={() => removeBlog(blog.id)}> Xóa</button></td>
                   </tr>            
                 ))}
                 </tbody>

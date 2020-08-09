@@ -1,42 +1,27 @@
 {
   "cate": [
     {
-      "title": "Không có danh mục",
-      "id": 1
+      "id": 1,
+      "title": "Không có danh mục"
     },
     {
-      "title": "Oppo",
-      "id": 2
-    },
-    {
-      "title": "Oppo 2",
+      "title": "Smartphone ",
+      "description": "goẻnonerocmeocm",
       "image": {
         "0": {}
       },
-      "id": 3
+      "id": 2
     }
   ],
   "products": [
     {
-      "namesp": "Asus Strix G531",
-      "anh": {
-        "0": {}
-      },
-      "oldprice": "40",
-      "newprice": "30",
-      "noidung": "Tiêu đề 1",
-      "description": "Nouifberiugnoinoiernf",
-      "id": 1
-    },
-    {
-      "namesp": "Oppo Reno 5",
+      "namesp": "Iphone 6",
       "anh": {
         "0": {}
       },
       "oldprice": "30",
-      "newprice": "20",
+      "newprice": "32",
       "noidung": "Tiêu đề 1",
-      "description": "đây là nội dung 1 ",
       "cateId": "undefined",
       "id": 2
     }
@@ -44,7 +29,7 @@
   "danhmucbv": [
     {
       "id": 1,
-      "tendm": "Không có danh mục",
+      "title": "Không có danh mục",
       "anh": "anh 1"
     },
     {
@@ -54,13 +39,22 @@
   ],
   "baiviet": [
     {
-      "title": "Blog Asus Shop News ",
-      "description": "regrvdfvcscd",
+      "title": "Smartphone hoàn toàn mới",
+      "description": "rgrthr5t6hrtgrtfg",
       "image": {
         "0": {}
       },
-      "ngaydang": "2020-08-07",
+      "ngaydang": "2020-08-08",
       "id": 1
+    },
+    {
+      "title": "Blog Asus Shop News ",
+      "description": "Strix G G531GT-HN553T là hiện thân của phong cách thiết kế tối giản, mang đến trải nghiệm cốt lõi mãnh liệt nhất. Dư sức để chiến những tựa game nặng kí và xử lý đa nhiệm cùng Windows 10. Hệ thống tản nhiệt thông minh giúp giải phóng sức mạnh của i5 9300H và GTX 1650. Tần số quét màn hình 120Hz 3ms nhanh nhất thế giới nâng tầm đẳng cấp của bạn. Với RangeBoost Wi-Fi mạnh mẽ bạn thoải mái tham gia vào các trận đấu hàng vạn người. Bất cứ khi nào bạn chơi game, viền máy lại được trang hoàng bằng dải led Aura Sync cá tính.",
+      "image": {
+        "0": {}
+      },
+      "ngaydang": "2020-08-09",
+      "id": 2
     }
   ]
 }

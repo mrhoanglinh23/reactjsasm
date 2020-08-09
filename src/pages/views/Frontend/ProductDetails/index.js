@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import Axios from 'axios';
-import { useParams } from 'react-router-dom';
+import { useParams, Link } from 'react-router-dom';
 
 const ProductDetails = (props) => {
     const {id} = useParams();
@@ -29,21 +29,9 @@ const ProductDetails = (props) => {
               <div className="col-md-6">
                 <h2 className="text-black">{products.namesp}</h2>
                 <p>{products.noidung}</p>
-                <p><strong className="text-primary h4">$50.00</strong></p>
-                <div className="mb-1 d-flex">
-                  <label htmlFor="option-sm" className="d-flex mr-3 mb-3">
-                    <span className="d-inline-block mr-2" style={{top: '-2px', position: 'relative'}}><input type="radio" id="option-sm" name="shop-sizes" /></span> <span className="d-inline-block text-black">Small</span>
-                  </label>
-                  <label htmlFor="option-md" className="d-flex mr-3 mb-3">
-                    <span className="d-inline-block mr-2" style={{top: '-2px', position: 'relative'}}><input type="radio" id="option-md" name="shop-sizes" /></span> <span className="d-inline-block text-black">Medium</span>
-                  </label>
-                  <label htmlFor="option-lg" className="d-flex mr-3 mb-3">
-                    <span className="d-inline-block mr-2" style={{top: '-2px', position: 'relative'}}><input type="radio" id="option-lg" name="shop-sizes" /></span> <span className="d-inline-block text-black">Large</span>
-                  </label>
-                  <label htmlFor="option-xl" className="d-flex mr-3 mb-3">
-                    <span className="d-inline-block mr-2" style={{top: '-2px', position: 'relative'}}><input type="radio" id="option-xl" name="shop-sizes" /></span> <span className="d-inline-block text-black"> Extra Large</span>
-                  </label>
-                </div>
+                <p><strong className="text-primary h4">Regular Price <s>${products.oldprice}</s></strong></p>
+                <p><strong className="text-primary h4">Sale Price: ${products.newprice}</strong></p>
+                
                 <div className="mb-5">
                   <div className="input-group mb-3" style={{maxWidth: '120px'}}>
                     <div className="input-group-prepend">
@@ -55,7 +43,7 @@ const ProductDetails = (props) => {
                     </div>
                   </div>
                 </div>
-                <p><a href="cart.html" className="buy-now btn btn-sm btn-primary">Add To Cart</a></p>
+                <p><Link to={`/cart`} className="buy-now btn btn-sm btn-primary">Add To Cart</Link></p>
               </div>
             </div>
           </div>
@@ -64,7 +52,10 @@ const ProductDetails = (props) => {
           <div className="container">
             <div className="row justify-content-center">
               <div className="col-md-7 site-section-heading text-center pt-4">
-                <h2>Featured Products</h2>
+                <h2>Description</h2>
+              </div>
+              <div className="col-md-7 site-section-heading text-center pt-4">
+                <p>{products.description}</p>
               </div>
             </div>
             <div className="row">

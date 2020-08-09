@@ -42,10 +42,16 @@ const Sidebar = props => {
                 <span>Bài viết</span></Link>
             </li>
             <li className="nav-item">
+            <Link className="nav-link" to="/admin/blogcat">
+                <i className="fas fa-fw fa-table" />
+                <span>Danh mục bài viết</span></Link>
+            </li>
+            <li className="nav-item">
             <Link className="nav-link" to={`/`}>
                 <i className="fa fa-address-book" />
                 <span>FrontEnd</span></Link>
             </li>
+            
             {/* Divider */}
             <hr className="sidebar-divider d-none d-md-block" />
             {/* Sidebar Toggler (Sidebar) */}

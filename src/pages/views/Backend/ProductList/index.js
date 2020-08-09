@@ -1,16 +1,13 @@
 import React, { useState, useEffect } from 'react'
 import PropTypes from 'prop-types'
 import { Link, useParams, useHistory } from 'react-router-dom'
-import axios from 'axios';
 import Axios from 'axios';
 
 const ProductList = (props) => {
   const {id} = useParams();
-  let history = useHistory();
     const removeProduct = id => {
-      let remove = window.confirm('Are you sure?');
       Axios.delete(`http://localhost:8000/products/${id}`).then(res => {
-        history.push('/admin/products');
+        alert('Đã xóa thành công');
         window.location.reload();
       })
     }
@@ -36,7 +33,6 @@ const ProductList = (props) => {
                     <th>Giá cũ</th>
                     <th>Giá mới</th>
                     <th>Tiêu đề</th>
-                    <th>Nội dung</th>
                     <th>Danh mục</th>
                     <th></th>
                     <th></th>
@@ -51,7 +47,6 @@ const ProductList = (props) => {
                     <td>${product.oldprice}</td>
                     <td>${product.newprice}</td>
                     <td>{product.noidung}</td>
-                    <td>{product.description}</td>
                     <td>{product.cateID}</td>
                     <td><Link to={`/admin/products/edit/${product.id}`}><button className="btn btn-primary btn-sm" >Sửa</button></Link></td>
                     <td><button className="btn btn-primary btn-sm" onClick={() => removeProduct(product.id)}> Xóa</button></td>

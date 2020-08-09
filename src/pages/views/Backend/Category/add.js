@@ -7,6 +7,7 @@ import { useHistory } from 'react-router-dom';
 
 const AddCate = () => {
     const {register, handleSubmit, errors} = useForm();
+    const [url, setURL] = useState("");
     let history = useHistory();
     const onSubmit = data => {
         let file = data.image[0];
@@ -15,8 +16,9 @@ const AddCate = () => {
             storageRef.getDownloadURL().then((url) => {
                 console.log(url);
                 Axios.post('http://localhost:8000/cate', data).then(res => {
-                    console.log(res);
-                    history.push("/admin/cat") 
+                    console.log(res.data);
+                    setURL(url);
+                    history.push("/admin/cat"); 
                     alert('Đã thêm danh mục thành công');
                 })
             })
@@ -30,6 +32,11 @@ const AddCate = () => {
                     <input type="text" className="form-control" name="title" ref={register({ required: true, maxLength: 15 })} />
                     {errors.title && errors.title.type === "required" && <span className="alert-danger">Nhập tên danh mục</span>}
                     {errors.title  && errors.title.type === "maxLength" && <span className="alert-danger">Tối đa 15 ký tự</span>}
+                </div>
+                <div className="form-group">
+                    <label htmlFor="email">Nội dung ngắn</label>
+                    <textarea class="form-control" name="description" ref={register({required: true, maxLength: 160})}></textarea>
+                    {errors.description && errors.description.type === "required" && <span className="alert-danger">Nhập nội dung ngắn</span>}
                 </div>
                 <div className="form-group">
                     <label htmlFor="email">Ảnh</label>

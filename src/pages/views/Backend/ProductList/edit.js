@@ -21,7 +21,7 @@ const EditProduct = (props) => {
         Axios.get(`http://localhost:8000/cate`)
           .then(res=>{
               console.log(res)
-              setProducts(res.data)
+              setCate(res.data)
           })
       },[])  
     const onSubmit = event => {

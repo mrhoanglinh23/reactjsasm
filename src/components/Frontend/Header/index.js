@@ -55,7 +55,7 @@ const Header = props => {
                 <li><Link to={`/products`}>Shop</Link></li>
                 <li><a href="#">Catalogue</a></li>
                 <li><a href="#">New Arrivals</a></li>
-                <li><a href="contact.html">Contact</a></li>
+                <li><Link to={`/contact`}>Contact</Link></li>
                 <li><Link to={`/blog`}>Blog</Link></li>
               </ul>
             </div>

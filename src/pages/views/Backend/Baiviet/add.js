@@ -18,6 +18,7 @@ const AddBaiviet = (props) => {
                     console.log(res);
                     history.push("/admin/baiviet") 
                     alert('Đã thêm bài viết thành công');
+                    window.location.reload();
                 })
             })
         })

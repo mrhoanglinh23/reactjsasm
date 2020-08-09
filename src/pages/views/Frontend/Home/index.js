@@ -1,7 +1,6 @@
 import React from 'react'
 import { Link, useParams } from 'react-router-dom'
 
-
 const Home = (props) => {
   const {id} = useParams();
     return (

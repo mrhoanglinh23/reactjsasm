@@ -45,14 +45,14 @@ const Products = (props) => {
                   </div>
                 </div>
                 <div className="row mb-5">
-                  {props.products.map((product) => (
-                    <div className="col-sm-6 col-lg-4 mb-4" data-aos="fade-up">
+                  {props.products.map((product, index) => (
+                    <div className="col-sm-6 col-lg-4 mb-4" data-aos="fade-up" key={index}>
                         <div className="block-4 text-center border">
                           <figure className="block-4-image">
                               <Link to={`/products/details/${product.id}`}><img src={product.anh} width="100" alt="Image placeholder" className="img-fluid" /></Link>
                           </figure>
                           <div className="block-4-text p-4">
-                              <h3><Link to={`/products/details/${id}`}>{product.namesp}</Link></h3>
+                              <h3><Link to={`/products/details/${product.id}`}>{product.namesp}</Link></h3>
                               <p className="mb-0">{product.noidung}</p>
                               <p className="text-primary font-weight-bold">Old Price: <s>${product.oldprice}</s></p>
                               <p className="text-primary font-weight-bold">New Price: ${product.newprice}</p>

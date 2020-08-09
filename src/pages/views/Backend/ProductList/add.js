@@ -1,14 +1,14 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import PropTypes from 'prop-types'
 import Axios from 'axios';
-import CKEditor from '@ckeditor/ckeditor5-react';
+import { Editor } from '@tinymce/tinymce-react';
 import firebase from '../../../../firebase'
 import {useHistory, useParams} from 'react-router-dom'
 import { useForm } from 'react-hook-form';
-import { storage } from 'firebase';
 
-const AddProduct = ({cate}) => {
+const AddProduct = (props) => {
     const {register, handleSubmit, errors} = useForm();
+    const [cate, setCate] = useState();
     const {id} = useParams();
     let history = useHistory();
     useEffect(() => {
@@ -16,8 +16,9 @@ const AddProduct = ({cate}) => {
             console.log(result);
         })
     }, []);
-
+    const [description, setDesc] = useState("");
     const onSubmit = (data) => {
+
         let file = data.anh[0];
         let storageRef = firebase.storage().ref(`images/${file.name}`);
         storageRef.put(file).then(function(){
@@ -30,7 +31,10 @@ const AddProduct = ({cate}) => {
                 })
             })
         })
-    }    
+    }
+    const handleEditorChange = (content) => {
+        setDesc(content);
+    }
     return (
         <div>
             <form action="" onSubmit={handleSubmit(onSubmit)}>
@@ -42,8 +46,8 @@ const AddProduct = ({cate}) => {
                 <div className="form-group">
                     <label htmlFor="email">Danh mục</label>
                     <select className="form-inline" name="catename">
-                        <option>Không có danh mục</option>
-                        {cate.map((cat, index) => (      
+                        
+                        {props.cate.map((cat, index) => (      
                             <option value={cat.name} key={index}>{cat.title}</option>
                         ))}
                     </select>
@@ -77,8 +81,25 @@ const AddProduct = ({cate}) => {
                 </div>
                 <div className="form-group">
                   <label htmlFor="">Description</label>
-                  <textarea className="form-control" name="description" cols="80" rows="10" ref={register({required: true})}></textarea>
-                  {errors.description && errors.description.type === "required" && <span className="alert-danger">Nhập nội dung</span>}
+                  <Editor
+                        init={{
+                            height: 200,
+                            images_upload_url: 'postAcceptor.php',
+                            plugins: [
+                                'advlist autolink lists link image charmap print preview anchor',
+                                'searchreplace visualblocks code fullscreen',
+                                'insertdatetime media table paste code help wordcount'
+                            ],
+                            toolbar:
+                                'undo redo | formatselect | bold italic backcolor |  image link\
+                                alignleft aligncenter alignright alignjustify | \
+                                bullist numlist outdent indent | removeformat | help',
+
+                        }}
+                        ref={register({required: true})}
+                        onEditorChange={handleEditorChange}
+                    />
+                  {errors.content && errors.content.type === "required" && <span className="alert-danger">Nhập nội dung</span>}
                 </div>
                 <button type="submit" className="btn btn-primary">Submit</button>
             </form>
