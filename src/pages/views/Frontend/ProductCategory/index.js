@@ -1,14 +1,12 @@
 import React from 'react'
-import { Link, useParams } from 'react-router-dom'
 
-const Blog = (props) => {
-    const {id} = useParams();
+const ProductCat = (props) => {
     return (
         <div>
             <div className="bg-light py-3">
           <div className="container">
             <div className="row">
-              <div className="col-md-12 mb-0"><a href="index.html">Home</a> <span className="mx-2 mb-0">/</span> <strong className="text-black">Blog</strong></div>
+              <div className="col-md-12 mb-0"><a href="index.html">Home</a> <span className="mx-2 mb-0">/</span> <strong className="text-black">Shop</strong></div>
             </div>
           </div>
         </div>
@@ -25,7 +23,7 @@ const Blog = (props) => {
                           Latest
                         </button>
                         <div className="dropdown-menu" aria-labelledby="dropdownMenuOffset">
-                          <a className="dropdown-item" href="#">#</a>
+                          <a className="dropdown-item" href="#">Men</a>
                           <a className="dropdown-item" href="#">Women</a>
                           <a className="dropdown-item" href="#">Children</a>
                         </div>
@@ -45,15 +43,17 @@ const Blog = (props) => {
                   </div>
                 </div>
                 <div className="row mb-5">
-                  {props.baiviet.map((blog, index) => (
+                  {props.products.map((product, index) => (
                     <div className="col-sm-6 col-lg-4 mb-4" data-aos="fade-up" key={index}>
                         <div className="block-4 text-center border">
                           <figure className="block-4-image">
-                              <Link to={`/baiviet/details/${blog.id}`}><img src={blog.anh} width="100" alt="Image placeholder" className="img-fluid" /></Link>
+                              <Link to={`/products/details/${product.id}`}><img src={product.anh} width="100" alt="Image placeholder" className="img-fluid" /></Link>
                           </figure>
                           <div className="block-4-text p-4">
-                              <h3><Link to={`/baiviet/details/${blog.id}`}>{blog.title}</Link></h3><br />
-                              <Link ><button type="button" class="btn btn-primary">Xem chi tiết</button></Link>
+                              <h3><Link to={`/products/details/${product.id}`}>{product.namesp}</Link></h3>
+                              <p className="mb-0">{product.noidung}</p>
+                              <p className="text-primary font-weight-bold">Old Price: <s>${product.oldprice}</s></p>
+                              <p className="text-primary font-weight-bold">New Price: ${product.newprice}</p>
                           </div>
                         </div>
                     </div>
@@ -120,10 +120,56 @@ const Blog = (props) => {
                 </div>
               </div>
             </div>
+            <div className="row">
+              <div className="col-md-12">
+                <div className="site-section site-blocks-2">
+                  <div className="row justify-content-center text-center mb-5">
+                    <div className="col-md-7 site-section-heading pt-4">
+                      <h2>Categories</h2>
+                    </div>
+                  </div>
+                  <div className="row">
+                    <div className="col-sm-6 col-md-6 col-lg-4 mb-4 mb-lg-0" data-aos="fade" data-aos-delay>
+                      <a className="block-2-item" href="#">
+                        <figure className="image">
+                          <img src="images/women.jpg" alt="" className="img-fluid" />
+                        </figure>
+                        <div className="text">
+                          <span className="text-uppercase">Collections</span>
+                          <h3>Women</h3>
+                        </div>
+                      </a>
+                    </div>
+                    <div className="col-sm-6 col-md-6 col-lg-4 mb-5 mb-lg-0" data-aos="fade" data-aos-delay={100}>
+                      <a className="block-2-item" href="#">
+                        <figure className="image">
+                          <img src="images/children.jpg" alt="" className="img-fluid" />
+                        </figure>
+                        <div className="text">
+                          <span className="text-uppercase">Collections</span>
+                          <h3>Children</h3>
+                        </div>
+                      </a>
+                    </div>
+                    <div className="col-sm-6 col-md-6 col-lg-4 mb-5 mb-lg-0" data-aos="fade" data-aos-delay={200}>
+                      <a className="block-2-item" href="#">
+                        <figure className="image">
+                          <img src="images/men.jpg" alt="" className="img-fluid" />
+                        </figure>
+                        <div className="text">
+                          <span className="text-uppercase">Collections</span>
+                          <h3>Men</h3>
+                        </div>
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
         </div>
     )
 }
 
-export default Blog
+export default ProductCat

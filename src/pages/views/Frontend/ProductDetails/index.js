@@ -16,7 +16,7 @@ const ProductDetails = (props) => {
             <div className="bg-light py-3">
           <div className="container">
             <div className="row">
-              <div className="col-md-12 mb-0"><a href="index.html">Home</a> <span className="mx-2 mb-0">/</span> <strong className="text-black">Tank Top T-Shirt</strong></div>
+              <div className="col-md-12 mb-0"><a href="index.html">Home</a> <span className="mx-2 mb-0">/</span> <strong className="text-black">Product Category</strong></div>
             </div>
           </div>
         </div>  
@@ -24,7 +24,7 @@ const ProductDetails = (props) => {
           <div className="container">
             <div className="row">
               <div className="col-md-6">
-                <img src="images/cloth_1.jpg" alt="Image" className="img-fluid" />
+                <img src={products.anh} alt="Image" className="img-fluid" />
               </div>
               <div className="col-md-6">
                 <h2 className="text-black">{products.namesp}</h2>
@@ -55,7 +55,7 @@ const ProductDetails = (props) => {
                 <h2>Description</h2>
               </div>
               <div className="col-md-7 site-section-heading text-center pt-4">
-                <p>{products.description}</p>
+                <p>{products.desc}</p>
               </div>
             </div>
             <div className="row">

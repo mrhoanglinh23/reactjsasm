@@ -2,12 +2,13 @@ import React, { useState } from 'react'
 import PropTypes from 'prop-types'
 import { useForm } from 'react-hook-form'
 import Axios from 'axios';
+import { Editor } from '@tinymce/tinymce-react';
 import firebase from '../../../../firebase'
 import { useHistory } from 'react-router-dom';
 
 const AddCate = () => {
     const {register, handleSubmit, errors} = useForm();
-    const [url, setURL] = useState("");
+    const [desc, setDesc] = useState("");
     let history = useHistory();
     const onSubmit = data => {
         let file = data.image[0];
@@ -15,14 +16,22 @@ const AddCate = () => {
         storageRef.put(file).then(function(){
             storageRef.getDownloadURL().then((url) => {
                 console.log(url);
+                const newData = {
+                    id: Math.random().toString(36).substr(2, 9),
+                    ...data,
+                    desc,
+                    image: url
+                }
                 Axios.post('http://localhost:8000/cate', data).then(res => {
                     console.log(res.data);
-                    setURL(url);
                     history.push("/admin/cat"); 
                     alert('Đã thêm danh mục thành công');
                 })
             })
         })
+    }
+    const handleEditorChange = (content, editor) => {
+        setDesc(content);
     }
     return (
         <div>

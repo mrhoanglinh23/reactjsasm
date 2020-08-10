@@ -56,39 +56,21 @@ const Home = (props) => {
         <div className="site-section site-blocks-2">
           <div className="container">
             <div className="row">
-              <div className="col-sm-6 col-md-6 col-lg-4 mb-4 mb-lg-0" data-aos="fade" data-aos-delay>
+
+              {props.cate.map((cate) => (
+                <div className="col-sm-6 col-md-6 col-lg-4 mb-4 mb-lg-0" data-aos="fade" data-aos-delay>
                 <a className="block-2-item" href="#">
                   <figure className="image">
                     <img src="images/women.jpg" alt="" className="img-fluid" />
                   </figure>
                   <div className="text">
-                    <span className="text-uppercase">Collections</span>
-                    <h3>Women</h3>
+                    <span className="text-uppercase" >Collections</span>
+                    <h3 style={{color: 'black', fontSize: 18}}>{cate.title}</h3>
                   </div>
                 </a>
               </div>
-              <div className="col-sm-6 col-md-6 col-lg-4 mb-5 mb-lg-0" data-aos="fade" data-aos-delay={100}>
-                <a className="block-2-item" href="#">
-                  <figure className="image">
-                    <img src="images/children.jpg" alt="" className="img-fluid" />
-                  </figure>
-                  <div className="text">
-                    <span className="text-uppercase">Collections</span>
-                    <h3>Children</h3>
-                  </div>
-                </a>
-              </div>
-              <div className="col-sm-6 col-md-6 col-lg-4 mb-5 mb-lg-0" data-aos="fade" data-aos-delay={200}>
-                <a className="block-2-item" href="#">
-                  <figure className="image">
-                    <img src="images/men.jpg" alt="" className="img-fluid" />
-                  </figure>
-                  <div className="text">
-                    <span className="text-uppercase">Collections</span>
-                    <h3>Men</h3>
-                  </div>
-                </a>
-              </div>
+              ))}
+              
             </div>
           </div>
         </div>
@@ -102,6 +84,7 @@ const Home = (props) => {
             <div className="row">
               <div className="col-md-12">
                 <div className="nonloop-block-3 owl-carousel">
+
                   {props.products.map((product) => (
                     <div className="item">
                     <div className="block-4 text-center">
@@ -124,27 +107,7 @@ const Home = (props) => {
             </div>
           </div>
         </div>
-        <div className="site-section block-8">
-          <div className="container">
-            <div className="row justify-content-center  mb-5">
-              <div className="col-md-7 site-section-heading text-center pt-4">
-                <h2>Big Sale!</h2>
-              </div>
-            </div>
-            <div className="row align-items-center">
-              <div className="col-md-12 col-lg-7 mb-5">
-                <a href="#"><img src="images/blog_1.jpg" alt="Image placeholder" className="img-fluid rounded" /></a>
-              </div>
-              <div className="col-md-12 col-lg-5 text-center pl-md-5">
-                <h2><a href="#">50% less in all items</a></h2>
-                <p className="post-meta mb-4">By <a href="#">Carl Smith</a> <span className="block-8-sep">•</span> September 3, 2018</p>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quisquam iste dolor accusantium facere corporis ipsum animi deleniti fugiat. Ex, veniam?</p>
-                <p><a href="#" className="btn btn-primary btn-sm">Shop Now</a></p>
-              </div>
-            </div>
-          </div>
-        </div>
-        </div>
+      </div>
     )
 }
 

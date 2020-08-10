@@ -25,6 +25,9 @@ import Blog from './pages/views/Frontend/Blog';
 import Axios from 'axios';
 import BlogDetails from './pages/views/Frontend/BlogDetails';
 import BlogCategory from './pages/views/Backend/Blogcategory';
+import AddBlogCat from './pages/views/Backend/Blogcategory/add';
+import Login from './pages/views/Frontend/Login';
+import Register from './pages/views/Frontend/Register';
 
 function App() {
   const[products, setProducts] = useState([]);
@@ -63,6 +66,9 @@ function App() {
       })
   },[])
 
+  useEffect(()=>{
+    
+  })
   return (
     <div>
       <Router>
@@ -102,8 +108,11 @@ function App() {
                 <Route exact path="/admin/baiviet/add">
                   <AddBaiviet />
                 </Route>
+                <Route exact path="/admin/blogcat/add">
+                  <AddBlogCat />
+                </Route>
                 {/*  / Thêm */}
-
+                
                 {/* Sửa */}
                 <Route exact path="/admin/cat/edit/:id">
                   <EditCate cate={cate}/>
@@ -123,17 +132,15 @@ function App() {
             <LayoutMain>
               <Switch>
                 <Route exact path="/">
-                  <Home products={products}/>
+                  <Home products={products} cate={cate}/>
                 </Route>
 
                 <Route exact path="/products">
-                  <Products products={products}/>
+                  <Products products={products} cate={cate}/>
                 </Route>
-
                 <Route exact path="/products/details/:id">
                   <ProductDetails products={products}/> {/* products={products} dùng để gọi dữ liệu truyền vào route */}
                 </Route>
-
                 <Route exact path="/contact">
                   <Contact />
                 </Route>
@@ -142,6 +149,12 @@ function App() {
                 </Route>
                 <Route exact path="/blog/details/:id">
                   <BlogDetails baiviet={baiviet}/>
+                </Route>
+                <Route exact path="/login">
+                  <Login />
+                </Route>
+                <Route exact path="/register">
+                  <Register />
                 </Route>
               </Switch>
             </LayoutMain>

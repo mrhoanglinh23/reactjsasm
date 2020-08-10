@@ -15,26 +15,33 @@
   ],
   "products": [
     {
+      "id": "3yxbwiwuy",
       "namesp": "Iphone 6",
-      "anh": {
-        "0": {}
-      },
-      "oldprice": "30",
-      "newprice": "32",
-      "noidung": "Tiêu đề 1",
-      "cateId": "undefined",
-      "id": 2
+      "anh": "https://firebasestorage.googleapis.com/v0/b/assignment-42ea6.appspot.com/o/images%2FG531GD-02-1.jpg?alt=media&token=1fec1c93-02ed-4fbd-914a-a04dd400687c",
+      "oldprice": "50",
+      "newprice": "40",
+      "noidung": "Nội dung 1",
+      "desc": ""
+    },
+    {
+      "id": "vs9du7bmk",
+      "namesp": "Asus Strix G531",
+      "anh": "https://firebasestorage.googleapis.com/v0/b/assignment-42ea6.appspot.com/o/images%2FG531GD-02-1.jpg?alt=media&token=3d9f6eaf-20a0-4055-996f-f0e8381b7c8f",
+      "oldprice": "40",
+      "newprice": "35",
+      "noidung": "Nội dung 1",
+      "desc": "<p>njkfbdiuvboucneocw</p>"
     }
   ],
   "danhmucbv": [
     {
-      "id": 1,
-      "title": "Không có danh mục",
-      "anh": "anh 1"
-    },
-    {
       "title": "Apple",
       "id": 2
+    },
+    {
+      "title": "Smartphone ",
+      "description": "Chuyên về smartphone",
+      "id": 3
     }
   ],
   "baiviet": [

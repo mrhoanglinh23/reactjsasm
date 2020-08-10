@@ -8,25 +8,29 @@ import { useForm } from 'react-hook-form';
 
 const AddProduct = (props) => {
     const {register, handleSubmit, errors} = useForm();
-    const [cate, setCate] = useState();
-    const {id} = useParams();
+    const [cate, setCate] = useState(); 
+    const [desc, setDesc] = useState("");
     let history = useHistory();
     useEffect(() => {
         Axios.get(`http://localhost:8000/cate`).then(result => {
             console.log(result);
         })
     }, []);
-    const [description, setDesc] = useState("");
     const onSubmit = (data) => {
-
         let file = data.anh[0];
         let storageRef = firebase.storage().ref(`images/${file.name}`);
         storageRef.put(file).then(function(){
             storageRef.getDownloadURL().then((url) => {
-                console.log(url);
-                Axios.post(`http://localhost:8000/cate/${id}/products`, data).then(res => {
+                const newObj = {
+                    id: Math.random().toString(36).substr(2,9),
+                    ...data,
+                    desc,
+                    anh: url
+                }
+                Axios.post(`http://localhost:8000/products`, newObj).then(res => { // cai duong dan nay em lay dau ra the http://localhost:8000/cate/${id}/products
+                    console.log(res.data)
                     history.push('/admin/products');
-                    alert('Đã thêm thành công');
+                    alert('Đã thêm thành công'); // ở đây thầy ạ, e dựa vào đường dẫn json và dựa vào mockapi thầy ạ? em lu' vua` thoi
                     window.location.reload();
                 })
             })
@@ -46,7 +50,7 @@ const AddProduct = (props) => {
                 <div className="form-group">
                     <label htmlFor="email">Danh mục</label>
                     <select className="form-inline" name="catename">
-                        
+
                         {props.cate.map((cat, index) => (      
                             <option value={cat.name} key={index}>{cat.title}</option>
                         ))}
@@ -99,7 +103,7 @@ const AddProduct = (props) => {
                         ref={register({required: true})}
                         onEditorChange={handleEditorChange}
                     />
-                  {errors.content && errors.content.type === "required" && <span className="alert-danger">Nhập nội dung</span>}
+                  {errors.desc && errors.desc.type === "required" && <span className="alert-danger">Nhập nội dung</span>}
                 </div>
                 <button type="submit" className="btn btn-primary">Submit</button>
             </form>

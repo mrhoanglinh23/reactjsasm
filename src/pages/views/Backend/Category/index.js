@@ -14,6 +14,7 @@ const CateList = (props) => {
         window.location.reload();
       })
     }
+    const [cate, setCate] = useState();
     return (
         <div>
             <h1 className="h3 mb-2 text-gray-800">Tables</h1>
@@ -27,6 +28,7 @@ const CateList = (props) => {
           
           <div className="card-body">
             <div className="table-responsive">
+              <input type="text" name="search" ></input>
               <table className="table table-bordered" id="dataTable" width="100%" cellSpacing={0}>
                 <thead>
                   <tr>
