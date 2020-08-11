@@ -18,15 +18,19 @@ const EditCate = (props) => {
               setCate(res.data)
           })
       },[])
+
       const onSubmit = data => {
         let file = data.image[0];
         let storageRef = firebase.storage().ref(`cateimages/${file.name}`);
         storageRef.put(file).then(function(){
             storageRef.getDownloadURL().then((url) => {
                 console.log(url);
-                Axios.post(`http://localhost:8000/cate/${id}`, data).then(res => {
+                const newData = {
+                    ...data,
+                    anh: url
+                }
+                Axios.put(`http://localhost:8000/cate/${id}`, data).then(res => {
                     console.log(res.data);
-                    setURL(url);
                     history.push("/admin/cat"); 
                     alert('Đã thêm danh mục thành công');
                 })
@@ -49,8 +53,12 @@ const EditCate = (props) => {
                 </div>
                 <div className="form-group">
                     <label htmlFor="email">Ảnh</label>
-                    <input type="file" className="form-control" name="image"  />
-                    <img src={cate.image} width="200"></img>
+                    <input type="file" className="form-control" name="anh" defaultValue={cate.image} ref={register({ required: true, pattern: {
+                        value: /\.(jpe?g|png|gif)/
+                    }})} />
+                    <img src={cate.anh} width="200"></img>
+                    {errors.image && errors.image.type === "required" && <span className="alert-danger">Nhập ảnh</span>}
+                    {errors.image && errors.image.type === "pattern" && <span className="alert-danger">Chỉ được phép nhập ảnh gồm .jpg, .jpeg, png, gif</span>}
                 </div>
                 <button type="submit" className="btn btn-primary">Submit</button>
             </form>

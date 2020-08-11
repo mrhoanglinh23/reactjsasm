@@ -18,19 +18,23 @@ const AddProduct = (props) => {
     }, []);
     const onSubmit = (data) => {
         let file = data.anh[0];
+        // tạo reference chứa ảnh trên firesbase
         let storageRef = firebase.storage().ref(`images/${file.name}`);
+        // đẩy ảnh lên đường dẫn trên
         storageRef.put(file).then(function(){
             storageRef.getDownloadURL().then((url) => {
+                // Tạo object mới chứa toàn bộ thông tin từ input
                 const newObj = {
-                    id: Math.random().toString(36).substr(2,9),
                     ...data,
                     desc,
                     anh: url
                 }
-                Axios.post(`http://localhost:8000/products`, newObj).then(res => { // cai duong dan nay em lay dau ra the http://localhost:8000/cate/${id}/products
+               // đẩy dữ liệu thông qua Axios.post
+                Axios.post(`http://localhost:8000/products`, newObj).then(res => { 
                     console.log(res.data)
+                    // sử dụng history bằng react-router-dom để đẩy lên 
                     history.push('/admin/products');
-                    alert('Đã thêm thành công'); // ở đây thầy ạ, e dựa vào đường dẫn json và dựa vào mockapi thầy ạ? em lu' vua` thoi
+                    alert('Đã thêm thành công'); 
                     window.location.reload();
                 })
             })

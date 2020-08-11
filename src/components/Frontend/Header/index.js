@@ -23,7 +23,7 @@ const Header = props => {
                 <div className="col-6 col-md-4 order-3 order-md-3 text-right">
                   <div className="site-top-icons">
                     <ul>
-                      <li><a href="#"><span className="icon icon-person" /></a></li>
+                      <li><Link to={`/login`}><span className="icon icon-person" /></Link></li>
                       <li><a href="#"><span className="icon icon-heart-o" /></a></li>
                       <li>
                         <a href="cart.html" className="site-cart">

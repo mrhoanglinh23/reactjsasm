@@ -7,7 +7,6 @@ const CateList = (props) => {
     const { id } = useParams();
     let history = useHistory();
     const removeCate = id => {
-      let remove = window.confirm('Are you sure?');
       Axios.delete(`http://localhost:8000/cate/${id}`).then(res => {
         history.push('/admin/cat');
         alert('Đã xóa thành công');
@@ -56,7 +55,7 @@ const CateList = (props) => {
                     <td>{index + 1}</td>
                     <td>{cat.title}</td>
                     <td>{cat.description}</td>
-                    <td><img src={cat.image}></img></td>
+                    <td><img src={cat.anh} width="150" style={{border: '1px solid black'}}></img></td>
                     <td><Link to={`/admin/cat/edit/${cat.id}`}><button className="btn btn-primary btn-sm" >Sửa</button></Link></td>
                     <td><button className="btn btn-primary btn-sm" onClick={() => removeCate(cat.id)}>Xóa</button></td>
                   </tr>            

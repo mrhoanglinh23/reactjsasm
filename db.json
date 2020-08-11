@@ -1,16 +1,10 @@
 {
   "cate": [
     {
-      "id": 1,
-      "title": "Không có danh mục"
-    },
-    {
-      "title": "Smartphone ",
-      "description": "goẻnonerocmeocm",
-      "image": {
-        "0": {}
-      },
-      "id": 2
+      "title": "Asus",
+      "description": "Do Asus phát triển",
+      "anh": "https://firebasestorage.googleapis.com/v0/b/assignment-42ea6.appspot.com/o/cateimages%2Fasus-logo-300x219.jpg?alt=media&token=7fcd40f4-9762-44e3-adb8-6c4a8b845e40",
+      "id": 1
     }
   ],
   "products": [
@@ -24,13 +18,13 @@
       "desc": ""
     },
     {
-      "id": "vs9du7bmk",
       "namesp": "Asus Strix G531",
-      "anh": "https://firebasestorage.googleapis.com/v0/b/assignment-42ea6.appspot.com/o/images%2FG531GD-02-1.jpg?alt=media&token=3d9f6eaf-20a0-4055-996f-f0e8381b7c8f",
-      "oldprice": "40",
-      "newprice": "35",
-      "noidung": "Nội dung 1",
-      "desc": "<p>njkfbdiuvboucneocw</p>"
+      "anh": "https://firebasestorage.googleapis.com/v0/b/assignment-42ea6.appspot.com/o/images%2Fz6_800x450.jpg?alt=media&token=f50c68a5-4bd5-4189-9f21-495ce09dfc89",
+      "oldprice": "100",
+      "newprice": "90",
+      "noidung": "Do Asus phát triển",
+      "desc": "<h1><strong>L&Agrave;M CHỦ CUỘC CHƠI</strong></h1>\n<h1 class=\"insoweTitle insoweFloat insoweOpen active\"><strong><img class=\"aligncenter size-full wp-image-20574\" src=\"https://xgear.vn/wp-content/uploads/2019/05/KV-_-Strix-G-1.jpg\" sizes=\"(max-width: 1080px) 100vw, 1080px\" srcset=\"https://xgear.vn/wp-content/uploads/2019/05/KV-_-Strix-G-1.jpg 1080w, https://xgear.vn/wp-content/uploads/2019/05/KV-_-Strix-G-1-150x150.jpg 150w, https://xgear.vn/wp-content/uploads/2019/05/KV-_-Strix-G-1-300x300.jpg 300w, https://xgear.vn/wp-content/uploads/2019/05/KV-_-Strix-G-1-768x768.jpg 768w, https://xgear.vn/wp-content/uploads/2019/05/KV-_-Strix-G-1-1024x1024.jpg 1024w, https://xgear.vn/wp-content/uploads/2019/05/KV-_-Strix-G-1-20x20.jpg 20w, https://xgear.vn/wp-content/uploads/2019/05/KV-_-Strix-G-1-30x30.jpg 30w, https://xgear.vn/wp-content/uploads/2019/05/KV-_-Strix-G-1-40x40.jpg 40w, https://xgear.vn/wp-content/uploads/2019/05/KV-_-Strix-G-1-193x193.jpg 193w, https://xgear.vn/wp-content/uploads/2019/05/KV-_-Strix-G-1-568x568.jpg 568w, https://xgear.vn/wp-content/uploads/2019/05/KV-_-Strix-G-1-100x100.jpg 100w\" alt=\"\" width=\"1080\" height=\"1080\" /></strong></h1>\n<p class=\"insoweTitle insoweFloat insoweOpen active\"><strong>Strix G G531GT-HN553T</strong>&nbsp;l&agrave; hiện th&acirc;n của phong c&aacute;ch thiết kế tối giản, mang đến trải nghiệm cốt l&otilde;i m&atilde;nh liệt nhất. Dư sức để chiến những tựa game nặng k&iacute; v&agrave; xử l&yacute; đa nhiệm c&ugrave;ng&nbsp;<strong>Windows 10</strong>.&nbsp;Hệ thống tản nhiệt th&ocirc;ng minh gi&uacute;p giải ph&oacute;ng sức mạnh của&nbsp;<strong>i5 9300H</strong>&nbsp;v&agrave;&nbsp;<strong>GTX 1650</strong>. Tần số qu&eacute;t m&agrave;n h&igrave;nh&nbsp;<strong>120Hz 3ms</strong>&nbsp;nhanh nhất thế giới n&acirc;ng tầm đẳng cấp của bạn.&nbsp;Với&nbsp;<strong>RangeBoost Wi-Fi&nbsp;</strong>mạnh mẽ&nbsp;bạn thoải m&aacute;i tham gia v&agrave;o c&aacute;c trận đấu h&agrave;ng vạn người. Bất cứ khi n&agrave;o bạn chơi game, viền m&aacute;y lại được trang ho&agrave;ng bằng dải led Aura Sync c&aacute; t&iacute;nh.</p>\n<p><strong>VGA:&nbsp;GTX 1650 4GB&nbsp;| CPU:&nbsp;Intel Core i5 9300H&nbsp;| RAM:&nbsp;8GB&nbsp;| SSD:&nbsp;512GB</strong></p>\n<p><strong>DISPLAY:&nbsp;15.6FHD IPS 144Hz</strong></p>\n<h2><img class=\"aligncenter size-full wp-image-20586\" src=\"https://xgear.vn/wp-content/uploads/2019/05/Strix-G-G531-10-1.jpg\" sizes=\"(max-width: 1726px) 100vw, 1726px\" srcset=\"https://xgear.vn/wp-content/uploads/2019/05/Strix-G-G531-10-1.jpg 1726w, https://xgear.vn/wp-content/uploads/2019/05/Strix-G-G531-10-1-300x168.jpg 300w, https://xgear.vn/wp-content/uploads/2019/05/Strix-G-G531-10-1-768x429.jpg 768w, https://xgear.vn/wp-content/uploads/2019/05/Strix-G-G531-10-1-1024x573.jpg 1024w, https://xgear.vn/wp-content/uploads/2019/05/Strix-G-G531-10-1-193x108.jpg 193w, https://xgear.vn/wp-content/uploads/2019/05/Strix-G-G531-10-1-568x318.jpg 568w\" alt=\"\" width=\"1726\" height=\"965\" />DESIGN</h2>\n<h2>FORWARD-THINKING FUNCTIONAL DESIGN</h2>\n<p>THIẾT KẾ TỐI ƯU H&Oacute;A T&Iacute;NH NĂNG</p>\n<p><strong>Strix G G531GT-HN553T&nbsp;</strong>với m&agrave;u x&aacute;m kim loại v&agrave; ấn tượng hơn khi kết hợp với những đường ph&acirc;y xước đẹp mắt. Thiết kế chiến lược n&agrave;y l&agrave; sự hợp t&aacute;c của&nbsp;<strong>Asus</strong>&nbsp;với&nbsp;<strong>Tập đo&agrave;n BMW Designworks</strong>&nbsp;cho ra đời d&atilde;i m&agrave;u&nbsp;<strong>3D Flow Zone</strong>&nbsp;sống động. Dải led &aacute;nh s&aacute;ng Aura Sync bao quanh th&acirc;n m&aacute;y, b&agrave;n ph&iacute;m v&agrave; logo ROG cũng được đổi mới.&nbsp;</p>\n<div class=\"content__slogan\">\n<p><img class=\"aligncenter size-full wp-image-20587\" src=\"https://xgear.vn/wp-content/uploads/2019/05/Strix-G-G531-11-1.jpg\" sizes=\"(max-width: 1357px) 100vw, 1357px\" srcset=\"https://xgear.vn/wp-content/uploads/2019/05/Strix-G-G531-11-1.jpg 1357w, https://xgear.vn/wp-content/uploads/2019/05/Strix-G-G531-11-1-300x206.jpg 300w, https://xgear.vn/wp-content/uploads/2019/05/Strix-G-G531-11-1-768x527.jpg 768w, https://xgear.vn/wp-content/uploads/2019/05/Strix-G-G531-11-1-1024x703.jpg 1024w, https://xgear.vn/wp-content/uploads/2019/05/Strix-G-G531-11-1-193x133.jpg 193w, https://xgear.vn/wp-content/uploads/2019/05/Strix-G-G531-11-1-568x390.jpg 568w\" alt=\"\" width=\"1357\" height=\"932\" /></p>\n<p>VỎ M&Aacute;Y &ndash; M&Agrave;N H&Igrave;NH</p>\n</div>\n<div class=\"content__slogan\">\n<div>Viền m&agrave;n h&igrave;nh bezel si&ecirc;u mỏng sẽ khiến m&agrave;n h&igrave;nh trở n&ecirc;n lớn hơn m&agrave; m&aacute;y th&igrave; nhỏ gọn hơn so với c&aacute;c d&ograve;ng laptop th&ocirc;ng thường. M&agrave;n h&igrave;nh viền mỏng của&nbsp;<strong>Strix G G531GT-HN553T&nbsp;</strong>sẽ khiến bạn đắm ch&igrave;m trong cuộc chiến, kh&ocirc;ng lo bị ph&acirc;n t&acirc;m. Trải nghiệm bao qu&aacute;t hơn d&ugrave; l&agrave; chơi game, xem phim, stream v&agrave; c&ograve;n nhiều hơn thế nữa.</div>\n<div>Lấy cảm hứng từ cửa gullwing, bản lề sẽ nổi l&ecirc;n khi mở m&aacute;y l&ecirc;n v&agrave; k&iacute;n đ&aacute;o đ&oacute;ng lại v&agrave;o khung.&nbsp;Thiết kế bản lề ẩn n&agrave;y sẽ mở ra th&ecirc;m kh&ocirc;ng gian bổ sung để th&ocirc;ng gi&oacute; v&agrave; hỗ trợ c&aacute;c tản nhiệt ở ph&iacute;a sau.&nbsp;Bản lề che giấu n&agrave;y cũng gi&uacute;p cho bản lề cũng như phần n&acirc;ng cấp dưới m&aacute;y đỡ bụi hơn.</div>\n</div>",
+      "id": "LV0tvt5"
     }
   ],
   "danhmucbv": [
@@ -62,6 +56,15 @@
       },
       "ngaydang": "2020-08-09",
       "id": 2
+    },
+    {
+      "title": "Oppo",
+      "description": "smnfoenofuiernofuno",
+      "image": {
+        "0": {}
+      },
+      "ngaydang": "2020-08-11",
+      "id": 3
     }
   ]
 }

@@ -8,7 +8,7 @@ const Blog = (props) => {
             <div className="bg-light py-3">
           <div className="container">
             <div className="row">
-              <div className="col-md-12 mb-0"><a href="index.html">Home</a> <span className="mx-2 mb-0">/</span> <strong className="text-black">Blog</strong></div>
+              <div className="col-md-12 mb-0"><Link to={`/`}>Home</Link><span className="mx-2 mb-0">/</span> <strong className="text-black">Blog</strong></div>
             </div>
           </div>
         </div>
@@ -49,10 +49,10 @@ const Blog = (props) => {
                     <div className="col-sm-6 col-lg-4 mb-4" data-aos="fade-up" key={index}>
                         <div className="block-4 text-center border">
                           <figure className="block-4-image">
-                              <Link to={`/baiviet/details/${blog.id}`}><img src={blog.anh} width="100" alt="Image placeholder" className="img-fluid" /></Link>
+                              <Link to={`/blog/details/${blog.id}`}><img src={blog.anh} width="100" alt="Image placeholder" className="img-fluid" /></Link>
                           </figure>
                           <div className="block-4-text p-4">
-                              <h3><Link to={`/baiviet/details/${blog.id}`}>{blog.title}</Link></h3><br />
+                              <h3><Link to={`/blog/details/${blog.id}`}>{blog.title}</Link></h3><br />
                               <Link ><button type="button" class="btn btn-primary">Xem chi tiết</button></Link>
                           </div>
                         </div>

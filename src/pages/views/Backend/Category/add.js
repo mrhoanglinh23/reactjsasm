@@ -8,30 +8,26 @@ import { useHistory } from 'react-router-dom';
 
 const AddCate = () => {
     const {register, handleSubmit, errors} = useForm();
-    const [desc, setDesc] = useState("");
     let history = useHistory();
+
     const onSubmit = data => {
         let file = data.image[0];
         let storageRef = firebase.storage().ref(`cateimages/${file.name}`);
         storageRef.put(file).then(function(){
             storageRef.getDownloadURL().then((url) => {
                 console.log(url);
-                const newData = {
-                    id: Math.random().toString(36).substr(2, 9),
+                const newObj = {
                     ...data,
-                    desc,
-                    image: url
+                    anh: url
                 }
-                Axios.post('http://localhost:8000/cate', data).then(res => {
+                Axios.post('http://localhost:8000/cate', newObj).then(res => {
                     console.log(res.data);
-                    history.push("/admin/cat"); 
+                    history.push("/admin/cat");
+                    window.location.reload();
                     alert('Đã thêm danh mục thành công');
                 })
             })
         })
-    }
-    const handleEditorChange = (content, editor) => {
-        setDesc(content);
     }
     return (
         <div>
@@ -49,8 +45,13 @@ const AddCate = () => {
                 </div>
                 <div className="form-group">
                     <label htmlFor="email">Ảnh</label>
-                    <input type="file" className="form-control" name="image" ref={register({ required: true})} />
+                    <input type="file" className="form-control" 
+                    name="anh" 
+                    ref={register({ required: true, pattern: {
+                        value: /\.(jpe?g|png|gif)/
+                    }})} />
                     {errors.image && errors.image.type === "required" && <span className="alert-danger">Nhập ảnh</span>}
+                    {errors.image && errors.image.type === "pattern" && <span className="alert-danger">Chỉ được phép nhập ảnh gồm .jpg, .jpeg, png, gif</span>}
                 </div>
                 <button type="submit" className="btn btn-primary">Submit</button>
             </form>

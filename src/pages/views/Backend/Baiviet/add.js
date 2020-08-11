@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import PropTypes from 'prop-types'
 import { useForm } from 'react-hook-form'
+import { Editor } from '@tinymce/tinymce-react';
 import Axios from 'axios';
 import firebase from '../../../../firebase'
 import { useHistory } from 'react-router-dom';
@@ -8,13 +9,19 @@ import { useHistory } from 'react-router-dom';
 const AddBaiviet = (props) => {
   const {register, handleSubmit, errors} = useForm();
   let history = useHistory();
+  const [desc, setDesc] = useState("");
   const onSubmit = data => {
     let file = data.image[0];
         let storageRef = firebase.storage().ref(`blogimages/${file.name}`);
         storageRef.put(file).then(function(){
             storageRef.getDownloadURL().then((url) => {
                 console.log(url);
-                Axios.post('http://localhost:8000/baiviet', data).then(res => {
+                const newObj = {
+                    ...data,
+                    desc,
+                    image: url
+                }
+                Axios.post('http://localhost:8000/baiviet', newObj).then(res => {
                     console.log(res);
                     history.push("/admin/baiviet") 
                     alert('Đã thêm bài viết thành công');
@@ -22,6 +29,9 @@ const AddBaiviet = (props) => {
                 })
             })
         })
+    }
+    const handleEditorChange = (content) => {
+      setDesc(content);
   }
     return (
         <div>
@@ -34,8 +44,25 @@ const AddBaiviet = (props) => {
                 </div>
                 <div className="form-group">
                   <label htmlFor="">Nội dung</label>
-                  <textarea class="form-control" name="description" ref={register({required: true})}></textarea>
-                  {errors.noidung && errors.noidung.type === "required" && <span className="alert-danger">Nhập nội dung</span>}
+                  <Editor
+                        init={{
+                            height: 200,
+                            images_upload_url: 'postAcceptor.php',
+                            plugins: [
+                                'advlist autolink lists link image charmap print preview anchor',
+                                'searchreplace visualblocks code fullscreen',
+                                'insertdatetime media table paste code help wordcount'
+                            ],
+                            toolbar:
+                                'undo redo | formatselect | bold italic backcolor |  image link\
+                                alignleft aligncenter alignright alignjustify | \
+                                bullist numlist outdent indent | removeformat | help',
+
+                        }}
+                        ref={register({required: true})}
+                        onEditorChange={handleEditorChange}
+                    />
+                  {errors.description && errors.description.type === "required" && <span className="alert-danger">Nhập nội dung</span>}
                 </div>
                 <div className="form-group">
                   <label htmlFor="">Ảnh</label>

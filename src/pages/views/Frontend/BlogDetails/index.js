@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import Axios from 'axios';
-import { useParams } from 'react-router-dom';
+import { useParams, Link } from 'react-router-dom';
 
 const BlogDetails = props => {
     const {id} = useParams();
@@ -13,15 +13,21 @@ const BlogDetails = props => {
       },[id])
     return (
         <div>
-            <div className="container">
-                <h2>{baiviet.title}</h2>
+            <div className="container-fluid">
+            <div className="row">
+              <div className="col-md-12 mb-0"><Link to={`/`}>Home</Link><span className="mx-2 mb-0">/</span> <strong className="text-black">Blog</strong></div>
+            </div>
+                <div className="card text-white bg-primary">
+                    <img className="card-img-top" src={baiviet.anh} alt="" width="400" />
+                    <div className="card-body">
+                    <h4 className="card-title">{baiviet.title}</h4>
+                    <p className="card-text">{baiviet.description}</p>
+                    </div>
+                </div>
             </div>
         </div>
     )
 }
 
-BlogDetails.propTypes = {
-
-}
 
 export default BlogDetails
