@@ -1,14 +1,43 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import PropTypes from 'prop-types'
 import { useForm } from 'react-hook-form'
 import Axios from 'axios';
+import {Editor} from '@tinymce/tinymce-react'
 import firebase from '../../../../firebase'
-import { useHistory } from 'react-router-dom';
+import { useHistory, useParams } from 'react-router-dom';
 
 const EditBlog = (props) => {
+    const {id} = useParams();
+    const[cate, setCate] = useState([]);
+    const [desc, setDesc] = useState("");
+    let history = useHistory();
     const {register, handleSubmit, errors} = useForm();
+    useEffect(()=>{
+      Axios.get(`http://localhost:8000/baiviet/${id}`)
+        .then(res=>{
+            console.log(res)
+            setCate(res.data)
+        })
+    },[])
     const onSubmit = data => {
-
+      let file = data.image[0];
+        let storageRef = firebase.storage().ref(`blogimages/${file.name}`);
+        storageRef.put(file).then(function(){
+            storageRef.getDownloadURL().then((url) => {
+                console.log(url);
+                const newObj = {
+                    ...data,
+                    desc,
+                    image: url
+                }
+                Axios.put(`http://localhost:8000/baiviet/${id}`, newObj).then(res => {
+                    console.log(res);
+                    history.push("/admin/baiviet") 
+                    alert('Đã sửa thành công');
+                    window.location.reload();
+                })
+            })
+        })
     }
     return (
         <div>

@@ -6,11 +6,13 @@ import firebase from '../../../../firebase'
 import { useHistory, useParams } from 'react-router-dom';
 
 const EditCate = (props) => {
+    // gọi id bằng useParams
     const {id} = useParams();
-    const[cate, setCate] = useState([]);
-    const [url, setURL] = useState("");
     const {register, handleSubmit, errors} = useForm();
+    // tạo đối tượng qua useState
+    const[cate, setCate] = useState([]);
     let history = useHistory();
+    // hiển thị dữ liệu có id thông qua useEffect
     useEffect(()=>{
         Axios.get(`http://localhost:8000/cate/${id}`)
           .then(res=>{
@@ -18,21 +20,20 @@ const EditCate = (props) => {
               setCate(res.data)
           })
       },[])
-
-      const onSubmit = data => {
-        let file = data.image[0];
-        let storageRef = firebase.storage().ref(`cateimages/${file.name}`);
+    const onSubmit = data => {
+        let file = data.anh[0];
+        let storageRef = firebase.storage().ref(`images/${file.name}`);
         storageRef.put(file).then(function(){
             storageRef.getDownloadURL().then((url) => {
-                console.log(url);
-                const newData = {
+                const newObj = {
                     ...data,
                     anh: url
                 }
-                Axios.put(`http://localhost:8000/cate/${id}`, data).then(res => {
-                    console.log(res.data);
-                    history.push("/admin/cat"); 
-                    alert('Đã thêm danh mục thành công');
+                Axios.put(`http://localhost:8000/cate/${id}`, newObj).then(res => { // cai duong dan nay em lay dau ra the http://localhost:8000/cate/${id}/products
+                    console.log(res.data)
+                    history.push('/admin/cat');
+                    alert('Đã sửa thành công'); // ở đây thầy ạ, e dựa vào đường dẫn json và dựa vào mockapi thầy ạ? em lu' vua` thoi
+                    window.location.reload();
                 })
             })
         })

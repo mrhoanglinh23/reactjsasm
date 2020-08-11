@@ -3,19 +3,19 @@
     {
       "title": "Asus",
       "description": "Do Asus phát triển",
-      "anh": "https://firebasestorage.googleapis.com/v0/b/assignment-42ea6.appspot.com/o/cateimages%2Fasus-logo-300x219.jpg?alt=media&token=7fcd40f4-9762-44e3-adb8-6c4a8b845e40",
+      "anh": "https://firebasestorage.googleapis.com/v0/b/assignment-42ea6.appspot.com/o/images%2Fasus-rog-banner3.jpg?alt=media&token=4e064a37-81ca-4be3-ad89-4e96c26a5338",
       "id": 1
     }
   ],
   "products": [
     {
-      "id": "3yxbwiwuy",
       "namesp": "Iphone 6",
-      "anh": "https://firebasestorage.googleapis.com/v0/b/assignment-42ea6.appspot.com/o/images%2FG531GD-02-1.jpg?alt=media&token=1fec1c93-02ed-4fbd-914a-a04dd400687c",
+      "anh": "https://firebasestorage.googleapis.com/v0/b/assignment-42ea6.appspot.com/o/images%2Fasus-logo-300x219.jpg?alt=media&token=54548ef8-1ec7-4f45-bb00-d74a61655837",
       "oldprice": "50",
       "newprice": "40",
       "noidung": "Nội dung 1",
-      "desc": ""
+      "desc": "",
+      "id": "3yxbwiwuy"
     },
     {
       "namesp": "Asus Strix G531",

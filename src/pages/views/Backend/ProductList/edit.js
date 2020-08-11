@@ -13,7 +13,7 @@ const EditProduct = (props) => {
     const [desc, setDesc] = useState("");
     const {register, handleSubmit, errors} = useForm();
     let history = useHistory();
-
+    // hiển thị dữ liệu bằng cách dùng useEffect
     useEffect(()=>{
         Axios.get(`http://localhost:8000/products/${id}`)
           .then(res=>{
@@ -27,14 +27,14 @@ const EditProduct = (props) => {
               console.log(res)
               setCate(res.data)
           })
-      },[])  
+      },[])
+
     const onSubmit = (data) => {
         let file = data.anh[0];
         let storageRef = firebase.storage().ref(`images/${file.name}`);
         storageRef.put(file).then(function(){
             storageRef.getDownloadURL().then((url) => {
                 const newObj = {
-                    id: Math.random().toString(36).substr(2,9),
                     ...data,
                     desc,
                     anh: url
