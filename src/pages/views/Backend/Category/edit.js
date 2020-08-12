@@ -22,7 +22,7 @@ const EditCate = (props) => {
       },[])
     const onSubmit = data => {
         let file = data.anh[0];
-        let storageRef = firebase.storage().ref(`images/${file.name}`);
+        let storageRef = firebase.storage().ref(`cateimages/${file.name}`);
         storageRef.put(file).then(function(){
             storageRef.getDownloadURL().then((url) => {
                 const newObj = {
@@ -58,8 +58,8 @@ const EditCate = (props) => {
                         value: /\.(jpe?g|png|gif)/
                     }})} />
                     <img src={cate.anh} width="200"></img>
-                    {errors.image && errors.image.type === "required" && <span className="alert-danger">Nhập ảnh</span>}
-                    {errors.image && errors.image.type === "pattern" && <span className="alert-danger">Chỉ được phép nhập ảnh gồm .jpg, .jpeg, png, gif</span>}
+                    {errors.anh && errors.anh.type === "required" && <span className="alert-danger">Nhập ảnh</span>}
+                    {errors.anh && errors.anh.type === "pattern" && <span className="alert-danger">Chỉ được phép nhập ảnh gồm .jpg, .jpeg, png, gif</span>}
                 </div>
                 <button type="submit" className="btn btn-primary">Submit</button>
             </form>

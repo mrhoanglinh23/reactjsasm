@@ -11,7 +11,7 @@ const AddCate = () => {
     let history = useHistory();
 
     const onSubmit = data => {
-        let file = data.image[0];
+        let file = data.anh[0];
         let storageRef = firebase.storage().ref(`cateimages/${file.name}`);
         storageRef.put(file).then(function(){
             storageRef.getDownloadURL().then((url) => {
@@ -50,8 +50,8 @@ const AddCate = () => {
                     ref={register({ required: true, pattern: {
                         value: /\.(jpe?g|png|gif)/
                     }})} />
-                    {errors.image && errors.image.type === "required" && <span className="alert-danger">Nhập ảnh</span>}
-                    {errors.image && errors.image.type === "pattern" && <span className="alert-danger">Chỉ được phép nhập ảnh gồm .jpg, .jpeg, png, gif</span>}
+                    {errors.anh && errors.anh.type === "required" && <span className="alert-danger">Nhập ảnh</span>}
+                    {errors.anh && errors.anh.type === "pattern" && <span className="alert-danger">Chỉ được phép nhập ảnh gồm .jpg, .jpeg, png, gif</span>}
                 </div>
                 <button type="submit" className="btn btn-primary">Submit</button>
             </form>

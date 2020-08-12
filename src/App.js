@@ -11,6 +11,7 @@ import Baivietlist from './pages/views/Backend/Baiviet';
 import AddCate from './pages/views/Backend/Category/add';
 import AddProduct from './pages/views/Backend/ProductList/add';
 import AddBaiviet from './pages/views/Backend/Baiviet/add';
+import AddBlogCat from './pages/views/Backend/Blogcategory/add';
 // Sửa
 import EditCate from './pages/views/Backend/Category/edit';
 import EditProduct from './pages/views/Backend/ProductList/edit';
@@ -25,7 +26,7 @@ import Blog from './pages/views/Frontend/Blog';
 import Axios from 'axios';
 import BlogDetails from './pages/views/Frontend/BlogDetails';
 import BlogCategory from './pages/views/Backend/Blogcategory';
-import AddBlogCat from './pages/views/Backend/Blogcategory/add';
+
 import Login from './pages/views/Frontend/Login';
 import Register from './pages/views/Frontend/Register';
 
@@ -74,7 +75,7 @@ function App() {
             <LayoutAdmin>
               <Switch>
                 <Route exact path="/admin">
-                  <Dashboard />
+                  <Dashboard cate={cate} products={products} blogcat={blogcat} baiviet={baiviet}/>
                 </Route>
                 {/* danh mục sản phẩm */}
                 <Route exact path="/admin/cat">

@@ -8,14 +8,9 @@ import { useForm } from 'react-hook-form';
 
 const AddProduct = (props) => {
     const {register, handleSubmit, errors} = useForm();
-    const [cate, setCate] = useState(); 
+    const [cate, setCate] = useState([]); 
     const [desc, setDesc] = useState("");
     let history = useHistory();
-    useEffect(() => {
-        Axios.get(`http://localhost:8000/cate`).then(result => {
-            console.log(result);
-        })
-    }, []);
     const onSubmit = (data) => {
         let file = data.anh[0];
         // tạo reference chứa ảnh trên firesbase
@@ -54,7 +49,6 @@ const AddProduct = (props) => {
                 <div className="form-group">
                     <label htmlFor="email">Danh mục</label>
                     <select className="form-inline" name="catename">
-
                         {props.cate.map((cat, index) => (      
                             <option value={cat.name} key={index}>{cat.title}</option>
                         ))}
@@ -65,12 +59,11 @@ const AddProduct = (props) => {
                     <input type="file" 
                     className="form-control" 
                     name="anh" 
-                    ref={
-                        register({
-                          required: true,  
-                        })
-                      } />
+                    ref={register({ required: true, pattern: {
+                        value: /\.(jpe?g|png|gif)/
+                    }})} />
                     {errors.anh && errors.anh.type === "required" && <span className="alert-danger">Nhập ảnh</span>}
+                    {errors.anh && errors.anh.type === "pattern" && <span className="alert-danger">Chỉ được phép nhập ảnh gồm .jpg, .jpeg, png, gif</span>}
                 </div>
                 <div className="form-group">
                     <label htmlFor="email">Regular Price</label>

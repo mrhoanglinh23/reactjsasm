@@ -28,7 +28,6 @@ const Baivietlist = (props) => {
                   <tr>
                   <th>#</th>
                     <th>Title</th>
-                    <th>Description</th>
                     <th>Image</th>
                     <th>Date Published</th>
                     <th>Sửa</th>
@@ -39,7 +38,6 @@ const Baivietlist = (props) => {
                   <tr>
                     <th>#</th>
                     <th>Title</th>
-                    <th>Description</th>
                     <th>Image</th>
                     <th>Date Published</th>
                     <th>Sửa</th>
@@ -51,8 +49,7 @@ const Baivietlist = (props) => {
                   <tr key={index}>
                     <td>{index + 1}</td>
                     <td>{blog.title}</td>
-                    <td>{blog.description}</td>
-                    <td><img src={blog.anh}></img></td>
+                    <td><img src={blog.image} width="150"></img></td>
                     <td>{blog.ngaydang}</td>
                     <td><Link to={`/admin/baiviet/edit/${blog.id}`}><button className="btn btn-primary btn-sm">Sửa</button></Link></td>
                     <td><button className="btn btn-primary btn-sm" onClick={() => removeBlog(blog.id)}> Xóa</button></td>

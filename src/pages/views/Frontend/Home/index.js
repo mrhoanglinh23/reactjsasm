@@ -5,7 +5,7 @@ const Home = (props) => {
   const {id} = useParams();
     return (
         <div>
-        <div className="site-blocks-cover" style={{backgroundImage: 'url(%PUBLIC_URL%/frontend/images/hero_1.jpg)'}} data-aos="fade">
+        <div className="site-blocks-cover" style={{backgroundImage: 'url(images/hero_1.jpg)'}} data-aos="fade">
           <div className="container">
             <div className="row align-items-start align-items-md-center justify-content-end">
               <div className="col-md-5 text-center text-md-left pt-5 pt-md-0">
@@ -56,16 +56,15 @@ const Home = (props) => {
         <div className="site-section site-blocks-2">
           <div className="container">
             <div className="row">
-
-              {props.cate.map((cate) => (
+              {props.cate.map((cat) => (
                 <div className="col-sm-6 col-md-6 col-lg-4 mb-4 mb-lg-0" data-aos="fade" data-aos-delay>
                 <a className="block-2-item" href="#">
                   <figure className="image">
-                    <img src="images/women.jpg" alt="" className="img-fluid" />
+                    <img src={cat.anh} alt="" className="img-fluid" width="500" height="150"/>
                   </figure>
                   <div className="text">
                     <span className="text-uppercase" >Collections</span>
-                    <h3 style={{color: 'black', fontSize: 18}}>{cate.title}</h3>
+                    <h3 style={{color: 'black', fontSize: 18}}>{cat.title}</h3>
                   </div>
                 </a>
               </div>

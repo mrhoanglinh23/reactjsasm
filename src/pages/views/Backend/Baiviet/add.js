@@ -62,7 +62,7 @@ const AddBaiviet = (props) => {
                         ref={register({required: true})}
                         onEditorChange={handleEditorChange}
                     />
-                  {errors.description && errors.description.type === "required" && <span className="alert-danger">Nhập nội dung</span>}
+                  {errors.desc && errors.desc.type === "required" && <span className="alert-danger">Nhập nội dung</span>}
                 </div>
                 <div className="form-group">
                   <label htmlFor="">Ảnh</label>

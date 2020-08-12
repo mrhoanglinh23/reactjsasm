@@ -39,10 +39,10 @@ const EditProduct = (props) => {
                     desc,
                     anh: url
                 }
-                Axios.put(`http://localhost:8000/products/${id}`, newObj).then(res => { // cai duong dan nay em lay dau ra the http://localhost:8000/cate/${id}/products
+                Axios.put(`http://localhost:8000/products/${id}`, newObj).then(res => {
                     console.log(res.data)
                     history.push('/admin/products');
-                    alert('Đã thêm thành công'); // ở đây thầy ạ, e dựa vào đường dẫn json và dựa vào mockapi thầy ạ? em lu' vua` thoi
+                    alert('Đã thêm thành công'); 
                     window.location.reload();
                 })
             })
@@ -75,9 +75,12 @@ const EditProduct = (props) => {
                     <label htmlFor="email">Ảnh</label>
                     <input type="file" 
                     className="form-control" 
-                    name="anh" ref={register({required: true})}/>
+                    name="anh" ref={register({ required: true, pattern: {
+                        value: /\.(jpe?g|png|gif)/
+                    }})} />
                     <img src={products.anh} width="200"></img>
                     {errors.anh && errors.anh.type === "required" && <span className="alert-danger">Chọn ảnh</span>}
+                    {errors.anh && errors.anh.type === "pattern" && <span className="alert-danger">Chỉ được phép nhập ảnh gồm .jpg, .jpeg, png, gif</span>}
                 </div>
                 <div className="form-group">
                     <label htmlFor="email">Regular Price</label>
@@ -98,7 +101,7 @@ const EditProduct = (props) => {
                   <label htmlFor="">Description</label>
                   <Editor
                         init={{
-                            height: 200,
+                            height: 500,
                             images_upload_url: 'postAcceptor.php',
                             plugins: [
                                 'advlist autolink lists link image charmap print preview anchor',
